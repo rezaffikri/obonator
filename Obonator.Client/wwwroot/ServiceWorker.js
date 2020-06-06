@@ -1,47 +1,46 @@
-const baseURL = '/';
-const indexURL = '/index.html';
+const baseURL = '/dev/';
+const indexURL = '/dev/index.html';
 const networkFetchEvent = 'fetch';
 const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
 const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
-const staticCacheName = 'blazor-cache-v9';
+const staticCacheName = 'blazor-cache-v1';
 const requiredFiles = [
-"/404.html",
-"/css/app.css",
-"/css/blazored-toast-custom.css",
-"/css/bootstrap/bootstrap.min.css",
-"/css/bootstrap/bootstrap.min.css.map",
-"/css/font-open-sans.css",
-"/css/login.css",
-"/css/minireset.css",
-"/css/obon.css",
-"/css/obonbaselayout.css",
-"/css/obonbox.css",
-"/css/obonbulma.css",
-"/css/oboncard.css",
-"/css/oboncolumns.css",
-"/css/oboncustom.css",
-"/css/open-iconic/FONT-LICENSE",
-"/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
-"/css/open-iconic/font/fonts/open-iconic.eot",
-"/css/open-iconic/font/fonts/open-iconic.otf",
-"/css/open-iconic/font/fonts/open-iconic.svg",
-"/css/open-iconic/font/fonts/open-iconic.ttf",
-"/css/open-iconic/font/fonts/open-iconic.woff",
-"/css/open-iconic/ICON-LICENSE",
-"/css/open-iconic/README.md",
-"/favicon.ico",
-"/img/icon-obon192.png",
-"/img/icon-obon512.png",
-"/img/logo.jpg",
-"/img/not_auth.jpg",
-"/img/splash-screen-cat-loading.gif",
-"/index.html",
-"/js/font-awesome.js",
-"/sample-data/weather.json",
-"/ServiceWorkerRegister.js",
-"/manifest.json"
+"/dev/404.html",
+"/dev/css/app.css",
+"/dev/css/blazored-toast-custom.css",
+"/dev/css/bootstrap/bootstrap.min.css",
+"/dev/css/bootstrap/bootstrap.min.css.map",
+"/dev/css/font-open-sans.css",
+"/dev/css/login.css",
+"/dev/css/minireset.css",
+"/dev/css/obon.css",
+"/dev/css/obonbaselayout.css",
+"/dev/css/obonbox.css",
+"/dev/css/obonbulma.css",
+"/dev/css/oboncard.css",
+"/dev/css/oboncolumns.css",
+"/dev/css/oboncustom.css",
+"/dev/css/open-iconic/FONT-LICENSE",
+"/dev/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
+"/dev/css/open-iconic/font/fonts/open-iconic.eot",
+"/dev/css/open-iconic/font/fonts/open-iconic.otf",
+"/dev/css/open-iconic/font/fonts/open-iconic.svg",
+"/dev/css/open-iconic/font/fonts/open-iconic.ttf",
+"/dev/css/open-iconic/font/fonts/open-iconic.woff",
+"/dev/css/open-iconic/ICON-LICENSE",
+"/dev/css/open-iconic/README.md",
+"/dev/favicon.ico",
+"/dev/img/icon-obon192.png",
+"/dev/img/icon-obon512.png",
+"/dev/img/logo.jpg",
+"/dev/img/not_auth.jpg",
+"/dev/img/splash-screen-cat-loading.gif",
+"/dev/index.html",
+"/dev/js/font-awesome.js",
+"/dev/ServiceWorkerRegister.js",
+"/dev/manifest.json"
 ];
 // * listen for the install event and pre-cache anything in filesToCache * //
 self.addEventListener(swInstallEvent, event => {
