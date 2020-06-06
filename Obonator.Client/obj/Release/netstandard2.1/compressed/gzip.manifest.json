@@ -31,42 +31,42 @@
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Blazorise.Icons.FontAwesome.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\kwELFN1iPoUbQ5nRCo3LD6KzuBJKD5xzPxzQdd5ozwI=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\yRp0Y28IwOAjJVeB2evcFbb47q5bT3uBMbcvr0SkguI=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Authorization.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Authorization.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\7xv81hF6drTjL-jiMh3_fzLi8iEA3FuPS0N2wmLt248=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\CXjfCfDrx7ATc284Wz96tbRQtlD6-oJTJk1gBrv7hB8=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Blazor.HttpClient.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Blazor.HttpClient.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\1Brz0aU7l0IpQv0i9Iy6_NJjjVesqvuM8Oc5AK9nnHA=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\KWoXjHzPOMvehrXDQQwHP3KDWrUHwbq2obYAYDcCXGw=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Components.Authorization.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Authorization.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\InxonrmRN_uHaEYz0huimGu3N7hdJVLEI5OvtFbzPzI=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\vHCRdwGQ4_7psd9v2wIbj7ngYdfmbucPLV_EMeWU3r8=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Components.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\L8VU9Xtf1t5jp7Nuj-BbhAUstqSmBmHlJmlM_dpKiHU=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\ANu3BZCrgqQYBB1m4XtIHWLJZzntNj5bPMRkzK8Fue4=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Components.Forms.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Forms.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\ZW05geV8PnhmV-rk0deRoRMSs8LxmNKtxZ05bFRS3ZE=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\oLoBJQcdHb6ipukFhliMIlRzx93wpRbptTLGn42GCOg=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Components.Web.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Web.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\u13zFxpLzzbIGW98sFxfQg9vHuJFp05-93O5GV9Ui8I=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\yAn_pPkpYCY3lmAmwCgGUnWO1ini65eBkz1IH6TQW9U=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Components.WebAssembly.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.WebAssembly.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\W8ycV-f0cJj_oxfDqJSWmYcv3kgoSa6DqJAs8T65t1U=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\IVBsSpJIBrTdO9zOIRtuD4xRiuz3utN4cCIni-hLdt0=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.AspNetCore.Metadata.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Metadata.dll.gz"
     },
@@ -76,47 +76,47 @@
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Bcl.AsyncInterfaces.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\hE39BB_e6MCnWxWP2LasSgUuVFtqyXMQsgYaLtWqkRs=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\f6-xa0NW3B3bFC83uCco7DGj7bN7DgN4k3Y7B6haZCM=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.Configuration.Abstractions.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.Configuration.Abstractions.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\QAdIBJbN2XsT2xRNSnUVQSX_ulbz4458Gc2P4-Y0qN0=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\tEpXAnX8cDV5jHr5fwUsWzTNjchWNJ9JN6WlxCKXT70=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.Configuration.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.Configuration.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\vdpY-D2HH7Mt7oLhXL-mWY7m6ITntvefoZGNEKKZe7E=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\jKLYIHr3mWUY2C9Anal7cXQYVHfg2jH0mxcVAKNdAnY=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.Configuration.Json.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.Configuration.Json.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\lu-LrL0KuOes-2X-LPhkCEEfizbwl3txtnjJZvJm4-g=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\cMqv532osLhCJe0n0ZLvYUdCyNdYLqmLSjU_B8tt1TA=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.DependencyInjection.Abstractions.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.DependencyInjection.Abstractions.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\PxGiGqr9F2ZEZeCiFI-FOKcvP0iJpkk66ua6YFLdjvY=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\6pZLlPF8hJQqngLtAz-K2nxs2MTuvo1ZSljr_mDns7E=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.DependencyInjection.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.DependencyInjection.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\wdIoc2BwpsOS6RfZJH36VUdumrmFlMCx5Q5lZR8Hu8s=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\T5D7FrdZDBDZF1DoRMe8NHxaG1Z7HJuW3k_Ito89P9I=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.Logging.Abstractions.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.Logging.Abstractions.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\Vy138Cx3uWRV_vp47z2m-lu4yQvjByW79ZTfHxBs_yk=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\c6nqJbpunidgY3XYOU-Tk4PBO0eMi5aN1paVjrjTgNU=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.Logging.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.Logging.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\VP8gEZ8h7MBxnz6vrpOLXssZY__FfVVsrzFlc7WdllQ=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\rTAqU0McN5eF7mlBtNrvWGKeAmsdNktJjJI-6l5dgDU=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.Options.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.Options.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\S6srD5WNsn3sbng-2eX6sLh4u_eEWDcHZe-epVylvbI=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\hjslJ-9R-m0y9qlrMsLAHckqZvWT96jXQ3s-Vb64BXs=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Microsoft.Extensions.Primitives.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.Extensions.Primitives.dll.gz"
     },
@@ -131,17 +131,17 @@
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\QItk6PsXQrnmBWiDuvPPPOBrzZyLb0hggTKdcTgvVsE=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\13RNCebxdSrE8jxWUQAOLchktx8S3v5EM102OjIl8-U=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Mono.Security.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Mono.Security.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\-aW6OgzU9yp2EZwykC5RJhX_NfWsGxRUXjHfAY3aNlc=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\_csQ3MGbyHh-Dv7Mft0zT251_nvKWMy7298ItIhT6Uk=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\mscorlib.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/mscorlib.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\yyW980fot_jF6c4pU4ZEfHQQIvbX6jlBzWuZvFJN3TQ=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\rSvJhRiYwUTAMR26QUgPCkORCN1NpeM0xg-Xm1cgb1k=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\Obonator.Client.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Obonator.Client.dll.gz"
     },
@@ -156,57 +156,57 @@
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/Obonator.Shared.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\HCiPhr6uBS-m2kYtaEuleupEBqkztoTEtrnovY8KpqI=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\x7b7TfGv6kT3sGB9gloOgXizTU0T6O_tV3pKDtYQ0-Y=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.ComponentModel.DataAnnotations.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.ComponentModel.DataAnnotations.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\C7xLRASWZI3HEB2GHVyR1rPBp41v3avg9-TdSN4ldAw=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\LuLlxKBs6onlGgNfjerr7MoLXLkcxTTq_RFJhaX4n3M=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Core.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Core.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\8hhPZ3CdOdzF9MXKLBIXDbaGAOfnrERiV_qrWxqHX-I=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\l4ECvqd9HXT8VV-sErRiA6fncTV6jGlLHJ9PTYC3Ajk=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\6lubk5x0eBfNxJvEjtZ1ftiAK9OCs1A6lcKM9T1IO0c=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\y10Mv4cdwSo_mNcj6FmU4Fkq3ohNYhiiCt9bHMEdD4A=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Drawing.Common.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Drawing.Common.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\089jHl6KEH9rpzQDv-fwgu88XK3DQ2NqITyVDnquIwo=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\XNijrywf4otRbx6L1upvfJcnCyp8FoM_8nd4zi8_iA8=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Net.Http.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Net.Http.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\ZrQdQBElkpw80brSmqsFFKrmJRii8_HeYsDKsKG-8-Y=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\rWhzMwuZ1LN6rxzkqbPW7-y0QDms1DSis-yufbUA7RI=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Net.Http.WebAssemblyHttpHandler.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Net.Http.WebAssemblyHttpHandler.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\jzH8LaA1B-frNkPBeUNP9E7C09TxE4g3c3f63VntYGo=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\zAMrLOrlRIWwxEoGnequXQFttYMKxn6o__9pwvsg2hs=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Runtime.CompilerServices.Unsafe.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Runtime.CompilerServices.Unsafe.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\U1ypWhtSllN9EvtAk667JdyPN-pQybtCyFUkxTg6a3w=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\CUUXbXaXuFhqiAB3N54nfG3bXpCtRIJPHH3ZvIlApYY=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Text.Encodings.Web.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Text.Encodings.Web.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\yfDkFURmKIwS4i9gsvJi5YyJ2VIpnEOe_JRsJv0TVRk=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\vmb9Q-JN4sXlfhZ2WM5eNf5_IiIwObtI0rL49D-dSvU=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Text.Json.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Text.Json.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\XKnB5Z7uddI5VsM8HgVv6B3T738wLeE9LDFmyDtmJSE=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\Lcj3bxb9AYm6nbPf0ZEomfhjN6QePPkVLzZZ5_z_PPQ=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\System.Xml.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/System.Xml.dll.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\YeUCP6MRbubZDQPPdzjj9R2HUmgeGWSa8D58amM6wDg=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\NbJBZ8mu6x1t4FH04DNLO3nVya19Pcdu3skpyRTXg-8=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\linker\\WebAssembly.Bindings.dll",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/_bin\/WebAssembly.Bindings.dll.gz"
     },
@@ -231,7 +231,7 @@
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.gz"
     },
     {
-      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\1Umj4GWbRE1QyKzCc-RIPiN6bQKrAaHf2gRRVHcAN9Y=.hash",
+      "InputSource": "obj\\Release\\netstandard2.1\\integrity\\ZeX9fmMUE6OQLTo-acn-pXDksl5W1EwTIH4W_efjuRI=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Release\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Release\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.gz"
     }

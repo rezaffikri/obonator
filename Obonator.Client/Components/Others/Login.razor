@@ -2,7 +2,7 @@
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
-<link rel="stylesheet" type="text/css" href="/css/login.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
 @if (ShowErrors)
 {
     <div class="notification is-danger is-size-5">
@@ -17,7 +17,7 @@
         <hr class="login-hr">
         <div class="obon-box-box">
             <figure class="avatar">
-                <img src="/img/logo.jpg">
+                <img src="img/logo.jpg">
             </figure>
             <EditForm Model="_model" OnValidSubmit="@HandleLogin">
                 <DataAnnotationsValidator />
