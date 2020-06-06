@@ -1,4 +1,4 @@
-const serviceWorkerFileName = '/ServiceWorker.js';
+const serviceWorkerFileName = '/obonator/ServiceWorker.js';
 const swInstalledEvent = 'installed';
 const staticCachePrefix = 'blazor-cache-v';
 const updateAlertMessage = 'Update available. Reload the page when convenient.';

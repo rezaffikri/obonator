@@ -1,5 +1,5 @@
-const baseURL = '/';
-const indexURL = '/index.html';
+const baseURL = '/obonator/';
+const indexURL = '/obonator/index.html';
 const networkFetchEvent = 'fetch';
 const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
@@ -7,40 +7,40 @@ const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
 const staticCacheName = 'blazor-cache-v1';
 const requiredFiles = [
-"/404.html",
-"/css/app.css",
-"/css/blazored-toast-custom.css",
-"/css/bootstrap/bootstrap.min.css",
-"/css/bootstrap/bootstrap.min.css.map",
-"/css/font-open-sans.css",
-"/css/login.css",
-"/css/minireset.css",
-"/css/obon.css",
-"/css/obonbaselayout.css",
-"/css/obonbox.css",
-"/css/obonbulma.css",
-"/css/oboncard.css",
-"/css/oboncolumns.css",
-"/css/oboncustom.css",
-"/css/open-iconic/FONT-LICENSE",
-"/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
-"/css/open-iconic/font/fonts/open-iconic.eot",
-"/css/open-iconic/font/fonts/open-iconic.otf",
-"/css/open-iconic/font/fonts/open-iconic.svg",
-"/css/open-iconic/font/fonts/open-iconic.ttf",
-"/css/open-iconic/font/fonts/open-iconic.woff",
-"/css/open-iconic/ICON-LICENSE",
-"/css/open-iconic/README.md",
-"/favicon.ico",
-"/img/icon-obon192.png",
-"/img/icon-obon512.png",
-"/img/logo.jpg",
-"/img/not_auth.jpg",
-"/img/splash-screen-cat-loading.gif",
-"/index.html",
-"/js/font-awesome.js",
-"/ServiceWorkerRegister.js",
-"/manifest.json"
+"/obonator/404.html",
+"/obonator/css/app.css",
+"/obonator/css/blazored-toast-custom.css",
+"/obonator/css/bootstrap/bootstrap.min.css",
+"/obonator/css/bootstrap/bootstrap.min.css.map",
+"/obonator/css/font-open-sans.css",
+"/obonator/css/login.css",
+"/obonator/css/minireset.css",
+"/obonator/css/obon.css",
+"/obonator/css/obonbaselayout.css",
+"/obonator/css/obonbox.css",
+"/obonator/css/obonbulma.css",
+"/obonator/css/oboncard.css",
+"/obonator/css/oboncolumns.css",
+"/obonator/css/oboncustom.css",
+"/obonator/css/open-iconic/FONT-LICENSE",
+"/obonator/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
+"/obonator/css/open-iconic/font/fonts/open-iconic.eot",
+"/obonator/css/open-iconic/font/fonts/open-iconic.otf",
+"/obonator/css/open-iconic/font/fonts/open-iconic.svg",
+"/obonator/css/open-iconic/font/fonts/open-iconic.ttf",
+"/obonator/css/open-iconic/font/fonts/open-iconic.woff",
+"/obonator/css/open-iconic/ICON-LICENSE",
+"/obonator/css/open-iconic/README.md",
+"/obonator/favicon.ico",
+"/obonator/img/icon-obon192.png",
+"/obonator/img/icon-obon512.png",
+"/obonator/img/logo.jpg",
+"/obonator/img/not_auth.jpg",
+"/obonator/img/splash-screen-cat-loading.gif",
+"/obonator/index.html",
+"/obonator/js/font-awesome.js",
+"/obonator/ServiceWorkerRegister.js",
+"/obonator/manifest.json"
 ];
 // * listen for the install event and pre-cache anything in filesToCache * //
 self.addEventListener(swInstallEvent, event => {
