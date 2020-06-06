@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "Obonator.Client.dll": "sha256-34mo7yuLOk5WPcQNoK4PRQxN9CL4hhEUhD\/LxsiYZKI=",
+      "Obonator.Client.dll": "sha256-mUeowRisy8eKuBGfXOR8TTJt\/jr4jBtiOjpIZxrhOqo=",
       "Microsoft.AspNetCore.Blazor.HttpClient.dll": "sha256-+UJV7yBVz0a75EXLVGMXkFC3CX3Da1GOowP08aGoo8E=",
       "System.Text.Json.dll": "sha256-HQeN+ZfHAERO+uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-kL\/omZDwqByAi+lPdMeDmr3XjHcn4RVb+LmZ4mut1Yc=",
@@ -71,7 +71,7 @@
       "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-1aRDpfCHHc5pXUdMzWhca4CvtqAiDdiTnN6M5kb+pbg="
     },
     "pdb": {
-      "Obonator.Client.pdb": "sha256-PS94jodFxCRAS0XmfnPFg5KsM6EYPhy99zobuStCUaw=",
+      "Obonator.Client.pdb": "sha256-J3H+OusLixKTXd1vdIwTK2SHP4IlChhrniHD9nZs4M4=",
       "Obonator.Library.pdb": "sha256-+6XwA5YW8my+pSN9V+ZnriY4txJY\/z2FnQM4MU\/Kyz8=",
       "Obonator.Shared.pdb": "sha256-YuRlqZd6yfwKhVNB70lG8IxGr3ACnKgCrFGyPSdHAA4="
     },

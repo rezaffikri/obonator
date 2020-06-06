@@ -479,6 +479,6 @@ D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\compres
 D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\compressed\_framework\_bin\Obonator.Shared.pdb.br
 D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\ARDApTvm8WNXiljy2E2KB3NsyzultKvGIvu6MMkavfI=.hash
 D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\_6XwA5YW8my_pSN9V_ZnriY4txJY-z2FnQM4MU-Kyz8=.hash
-D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\34mo7yuLOk5WPcQNoK4PRQxN9CL4hhEUhD-LxsiYZKI=.hash
-D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\PS94jodFxCRAS0XmfnPFg5KsM6EYPhy99zobuStCUaw=.hash
-D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\Qk82YA34puPxC_5Skv_gpBg6RkTwKX6neKf84D0BC3k=.hash
+D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\mUeowRisy8eKuBGfXOR8TTJt-jr4jBtiOjpIZxrhOqo=.hash
+D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\J3H_OusLixKTXd1vdIwTK2SHP4IlChhrniHD9nZs4M4=.hash
+D:\Projects\rezaffikri\Obonator\Obonator.Client\obj\Debug\netstandard2.1\integrity\UIcK4DIBz8YNW2QeA6VneOopJ5nkmH3qXQP-MIBNnNc=.hash
