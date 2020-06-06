@@ -23,3 +23,12 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Publish with dotnet
+      run: dotnet publish --configuration Release --output build
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+          GITHUB_TOKEN: ${{ secrets.obonator }}
+          BRANCH: gh-pages
+          FOLDER: build/wwwroot
+          CLEAN: true
