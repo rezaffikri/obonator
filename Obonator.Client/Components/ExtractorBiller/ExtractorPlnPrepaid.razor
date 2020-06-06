@@ -1,0 +1,179 @@
+﻿@using System.Text.Json;
+
+
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Input</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea " rows="3" @bind="inputData" placeholder="Input"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Output</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" rows="9" @bind="outputData" placeholder="Output" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><!----></div>
+    <div class="field-body">
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField48Inquiry">
+                    Extract Inq
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField48Payment">
+                    Extract Pay
+                </button>
+            </div>
+
+            <div class="control">
+                <button class="button is-primary" @onclick="ClearTextBox">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+
+    public class Extractor
+    {
+        //field 48 inquiry
+        public string f48_inq_01_gateway_id_7 { get; set; }
+        public string f48_inq_02_meter_serial_number_11 { get; set; }
+        public string f48_inq_03_subscriber_id_12 { get; set; }
+        public string f48_inq_04_flag_1 { get; set; }
+        public string f48_inq_05_pln_reference_number_32 { get; set; }
+        public string f48_inq_06_ca_receipt_reference_number_32 { get; set; }
+        public string f48_inq_07_subscriber_name_25 { get; set; }
+        public string f48_inq_08_subscriber_segmentation_4 { get; set; }
+        public string f48_inq_09_power_consuming_category_9 { get; set; }
+        public string f48_inq_10_minor_unit_of_admin_charge_1 { get; set; }
+        public string f48_inq_11_admin_charge_10 { get; set; }
+
+        //field 48 payment
+        public string f48_pay_01_gateway_id_7 { get; set; }
+        public string f48_pay_02_meter_serial_number_11 { get; set; }
+        public string f48_pay_03_subscriber_id_12 { get; set; }
+        public string f48_pay_04_flag_1 { get; set; }
+        public string f48_pay_05_pln_reference_number_32 { get; set; }
+        public string f48_pay_06_ca_receipt_reference_number_32 { get; set; }
+        public string f48_pay_07_vending_receipt_number_8 { get; set; }
+        public string f48_pay_08_subscriber_name_25 { get; set; }
+        public string f48_pay_09_subscriber_segmentation_4 { get; set; }
+        public string f48_pay_10_power_consuming_category_9 { get; set; }
+        public string f48_pay_11_buying_option_1 { get; set; }
+        public string f48_pay_12_minor_unit_of_admin_charge_1 { get; set; }
+        public string f48_pay_13_admin_charge_10 { get; set; }
+        public string f48_pay_14_minor_unit_of_stamp_duty_1 { get; set; }
+        public string f48_pay_15_stamp_duty_10 { get; set; }
+        public string f48_pay_16_minor_unit_of_value_added_tax_1 { get; set; }
+        public string f48_pay_17_value_added_tax_10 { get; set; }
+        public string f48_pay_18_minor_unit_of_public_lightning_tax_1 { get; set; }
+        public string f48_pay_19_public_lightning_tax_10 { get; set; }
+        public string f48_pay_20_minor_unit_of_customer_paybles_installment_1 { get; set; }
+        public string f48_pay_21_customer_payables_installment_10 { get; set; }
+        public string f48_pay_22_minor_unit__of_power_purchase_1 { get; set; }
+        public string f48_pay_23_power_purchase_12 { get; set; }
+        public string f48_pay_24_minor_unit_of_purchased_kwh_unit_1 { get; set; }
+        public string f48_pay_25_purchased_kwh_unit_10 { get; set; }
+        public string f48_pay_26_token_number_20 { get; set; }
+    }
+
+
+    public void ExtractField48Inquiry()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.f48_inq_01_gateway_id_7 = s.getString(7);
+            extractor.f48_inq_02_meter_serial_number_11 = s.getString(11);
+            extractor.f48_inq_03_subscriber_id_12 = s.getString(12);
+            extractor.f48_inq_04_flag_1 = s.getString(1);
+            extractor.f48_inq_05_pln_reference_number_32 = s.getString(32);
+            extractor.f48_inq_06_ca_receipt_reference_number_32 = s.getString(32);
+            extractor.f48_inq_07_subscriber_name_25 = s.getString(25);
+            extractor.f48_inq_08_subscriber_segmentation_4 = s.getString(4);
+            extractor.f48_inq_09_power_consuming_category_9 = s.getString(9);
+            extractor.f48_inq_10_minor_unit_of_admin_charge_1 = s.getString(1);
+            extractor.f48_inq_11_admin_charge_10 = s.getString(10);
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+
+        }
+        catch
+        {   
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+    }
+
+    public void ExtractField48Payment()
+    {
+
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+            extractor.f48_pay_01_gateway_id_7 = s.getString(7);
+            extractor.f48_pay_02_meter_serial_number_11 = s.getString(11);
+            extractor.f48_pay_03_subscriber_id_12 = s.getString(12);
+            extractor.f48_pay_04_flag_1 = s.getString(1);
+            extractor.f48_pay_05_pln_reference_number_32 = s.getString(32);
+            extractor.f48_pay_06_ca_receipt_reference_number_32 = s.getString(32);
+            extractor.f48_pay_07_vending_receipt_number_8 = s.getString(8);
+            extractor.f48_pay_08_subscriber_name_25 = s.getString(25);
+            extractor.f48_pay_09_subscriber_segmentation_4 = s.getString(4);
+            extractor.f48_pay_10_power_consuming_category_9 = s.getString(9);
+            extractor.f48_pay_11_buying_option_1 = s.getString(1);
+            extractor.f48_pay_12_minor_unit_of_admin_charge_1 = s.getString(1);
+            extractor.f48_pay_13_admin_charge_10 = s.getString(10);
+            extractor.f48_pay_14_minor_unit_of_stamp_duty_1 = s.getString(1);
+            extractor.f48_pay_15_stamp_duty_10 = s.getString(10);
+            extractor.f48_pay_16_minor_unit_of_value_added_tax_1 = s.getString(1);
+            extractor.f48_pay_17_value_added_tax_10 = s.getString(10);
+            extractor.f48_pay_18_minor_unit_of_public_lightning_tax_1 = s.getString(1);
+            extractor.f48_pay_19_public_lightning_tax_10 = s.getString(10);
+            extractor.f48_pay_20_minor_unit_of_customer_paybles_installment_1 = s.getString(1);
+            extractor.f48_pay_21_customer_payables_installment_10 = s.getString(10);
+            extractor.f48_pay_22_minor_unit__of_power_purchase_1 = s.getString(1);
+            extractor.f48_pay_23_power_purchase_12 = s.getString(12);
+            extractor.f48_pay_24_minor_unit_of_purchased_kwh_unit_1 = s.getString(1);
+            extractor.f48_pay_25_purchased_kwh_unit_10 = s.getString(10);
+            extractor.f48_pay_26_token_number_20 = s.getString(20);
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+        }
+        catch
+        {
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+    }
+    public void ClearTextBox()
+    {
+        inputData = "";
+        outputData = "";
+    }
+}

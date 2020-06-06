@@ -1,0 +1,10 @@
+﻿@page "/"
+
+<AuthorizeView>
+    <Authorized Context="Auth">
+        <Obonator.Client.Components.Others.Index />
+    </Authorized>
+    <NotAuthorized Context="NotAuth">
+       <Login />
+    </NotAuthorized>
+</AuthorizeView>

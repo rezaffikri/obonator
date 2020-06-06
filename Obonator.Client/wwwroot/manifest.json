@@ -1,0 +1,18 @@
+{
+  "short_name": "Obon",
+  "name": "Obonator",
+  "start_url": "/dev/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src":"/dev/img/icon-obon192.png",
+      "type":"image/png",
+      "sizes":"192x192"
+    },
+    {
+      "src":"/dev/img/icon-obon512.png",
+      "type":"image/png",
+      "sizes":"512x512"
+    }
+  ]
+}

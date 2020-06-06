@@ -1,0 +1,88 @@
+﻿@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+@if (ShowErrors)
+{
+    <div class="notification is-danger is-size-5">
+        <button @onclick="Delete" class="delete"></button>
+        @Error
+    </div>
+}
+
+<div class="container has-text-centered">
+    <div class="obon-column is-4 is-offset-4">
+        <h3 class="title has-text-black">OBONATOR</h3>
+        <hr class="login-hr">
+        <div class="obon-box-box">
+            <figure class="avatar">
+                <img src="/img/logo.jpg">
+            </figure>
+            <EditForm Model="_model" OnValidSubmit="@HandleLogin">
+                <DataAnnotationsValidator />
+                <div class="field">
+                    <div class="control">
+                        <InputText class="form-control input" @bind-Value="@_model.Email" type="text" placeholder="Your Username" autofocus="" />
+                        <ValidationMessage For="@(() => _model.Email)" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <InputText class="form-control input" @bind-Value="_model.Password" type="password" placeholder="Your Password" />
+                        <ValidationMessage For="@(() => _model.Password)" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <InputCheckbox @bind-Value="@_model.RememberMe"/>
+                        <label> Remember Me</label>
+                    </div>
+                </div>
+                <button type="submit" class="button is-block is-info is-fullwidth">
+                    Login
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    private LoginModel _model = new LoginModel();
+    private bool ShowErrors;
+    private string Error = "";
+
+    private async Task HandleLogin()
+    {
+        ShowErrors = true;
+        var result = await AuthService.LocalLogin(_model);
+
+        if (result.Successful)
+        {
+            NavigationManager.NavigateTo("/");
+        }
+        else
+        {
+            Error = result.Error;
+        }
+    }
+
+    private void Delete()
+    {
+        ShowErrors = false;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _model.Email = await localStorage.GetItemAsync<string>("authUser");
+        }
+        catch
+        {
+            //error server side
+        }
+
+    }
+}

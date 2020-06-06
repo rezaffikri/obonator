@@ -1,0 +1,99 @@
+﻿@using System.Text.Json;
+
+
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Input</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea " rows="3" @bind="inputData" placeholder="Input"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Output</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" rows="9" @bind="outputData" placeholder="Output" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><!----></div>
+    <div class="field-body">
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField61Inquiry">
+                    Extract Inq
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField61Inquiry">
+                    Extract Pay
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ClearTextBox">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+
+    public class Extractor
+    {
+        public string f01_id_pelanggan_20 { get; set; }
+        public string f02_language_1 { get; set; }
+        public string f03_date_8 { get; set; }
+        public string f04_time_6 { get; set; }
+        public string f05_name_30 { get; set; }
+        public string f06_nominal_12 { get; set; }
+        public string f07_biaya_admin_12 { get; set; }
+        public string f08_serial_number_20 { get; set; }
+    }
+    public void ExtractField61Inquiry()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.f01_id_pelanggan_20 = s.getString(20);
+            extractor.f02_language_1 = s.getString(1);
+            extractor.f03_date_8 = s.getString(8);
+            extractor.f04_time_6 = s.getString(6);
+            extractor.f05_name_30 = s.getString(30);
+            extractor.f06_nominal_12 = s.getString(12);
+            extractor.f07_biaya_admin_12 = s.getString(12);
+            extractor.f08_serial_number_20 = s.getString(20);
+
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+
+        }
+        catch
+        {
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+
+    }
+    public void ClearTextBox()
+    {
+        inputData = "";
+        outputData = "";
+    }
+}

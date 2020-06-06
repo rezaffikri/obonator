@@ -1,0 +1,118 @@
+﻿@using System.Text.Json;
+
+
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Input</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" rows="3" @bind="inputData" placeholder="Input"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Output</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" rows="9" @bind="outputData" placeholder="Output" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><!----></div>
+    <div class="field-body">
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField48">
+                    Extract Inq/Pay
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ClearTextBox">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+
+    public class Extractor
+    {
+        public string F48_01_gateway_id_7 { get; set; }
+        public string F48_02_registration_number_32 { get; set; }
+        public string F48_03_area_code_2 { get; set; }
+        public string F48_04_transaction_code_3 { get; set; }
+        public string F48_05_transaction_name_25 { get; set; }
+        public string F48_06_registration_date_8 { get; set; }
+        public string F48_07_expiration_date_8 { get; set; }
+        public string F48_08_subscriber_id_12 { get; set; }
+        public string F48_09_subscriber_name_25 { get; set; }
+        public string F48_10_pln_reference_number_32 { get; set; }
+        public string F48_11_gsp_reference_number_32 { get; set; }
+        public string F48_12_service_unit_5 { get; set; }
+        public string F48_13_service_unit_address_35 { get; set; }
+        public string F48_14_service_unit_phone_15 { get; set; }
+        public string F48_15_total_transaction_amount_minor_unit_1 { get; set; }
+        public string F48_16_total_transaction_amount_17 { get; set; }
+        public string F48_17_pln_bill_minor_unit_1 { get; set; }
+        public string F48_18_pln_bill_value_rptag_17 { get; set; }
+        public string F48_19_administration_charge_minor_unit_1 { get; set; }
+        public string F48_20_administration_charge_10 { get; set; }
+    }
+
+
+    public void ExtractField48()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.F48_01_gateway_id_7 = s.getString(7);
+            extractor.F48_02_registration_number_32 = s.getString(32);
+            extractor.F48_03_area_code_2 = s.getString(2);
+            extractor.F48_04_transaction_code_3 = s.getString(3);
+            extractor.F48_05_transaction_name_25 = s.getString(25);
+            extractor.F48_06_registration_date_8 = s.getString(8);
+            extractor.F48_07_expiration_date_8 = s.getString(8);
+            extractor.F48_08_subscriber_id_12 = s.getString(12);
+            extractor.F48_09_subscriber_name_25 = s.getString(25);
+            extractor.F48_10_pln_reference_number_32 = s.getString(32);
+            extractor.F48_11_gsp_reference_number_32 = s.getString(32);
+            extractor.F48_12_service_unit_5 = s.getString(5);
+            extractor.F48_13_service_unit_address_35 = s.getString(35);
+            extractor.F48_14_service_unit_phone_15 = s.getString(15);
+            extractor.F48_15_total_transaction_amount_minor_unit_1 = s.getString(1);
+            extractor.F48_16_total_transaction_amount_17 = s.getString(17);
+            extractor.F48_17_pln_bill_minor_unit_1 = s.getString(1);
+            extractor.F48_18_pln_bill_value_rptag_17 = s.getString(17);
+            extractor.F48_19_administration_charge_minor_unit_1 = s.getString(1);
+            extractor.F48_20_administration_charge_10 = s.getString(10);
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+
+        }
+        catch
+        {
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+    }
+    public void ClearTextBox()
+    {
+        inputData = "";
+        outputData = "";
+    }
+}

@@ -1,0 +1,188 @@
+﻿@using System.Text.Json;
+
+
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Input</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea " rows="3" @bind="inputData" placeholder="Input"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Output</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" rows="9" @bind="outputData" placeholder="Output" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><!----></div>
+    <div class="field-body">
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField48Inquiry">
+                    Extract Inq Res
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField48PaymentRequest">
+                    Extract Pay Req
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField48PaymentResponse">
+                    Extract Pay Res
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ClearTextBox">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+
+    public class Extractor
+    {
+        public string f48_01_Product_2 { get; set; }
+        public string f48_02_KodeBayar_18 { get; set; }
+        public string f48_03_Tahun_4 { get; set; }
+        public string f48_04_Nama_30 { get; set; }
+        public string f48_05_Alamat_45 { get; set; }
+        public string f48_06_Kecamatan_30 { get; set; }
+        public string f48_08_Kotamadya_30 { get; set; }
+        public string f48_09_JmlTagihan_12 { get; set; }
+        public string f48_10_KodeRekPokok_10 { get; set; }
+        public string f48_11_JmlPokok_12 { get; set; }
+        public string f48_12_KodeRekSanksi_10 { get; set; }
+        public string f48_13_JmlSanksi_12 { get; set; }
+        public string f48_14_KodeRekBunga_10 { get; set; }
+        public string f48_15_JmlBunga_12 { get; set; }
+        public string f48_16_KodeRekDenda_10 { get; set; }
+        public string f48_17_JmlDenda_12 { get; set; }
+        public string f48_18_JmlAdmin_12 { get; set; }
+        public string f48_19_Period_4 { get; set; }
+        public string f48_20_BuktiBayar_16 { get; set; }
+    }
+    public void ExtractField48Inquiry()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.f48_01_Product_2 = s.getString(2);
+            extractor.f48_02_KodeBayar_18 = s.getString(18);
+            extractor.f48_03_Tahun_4 = s.getString(4);
+            extractor.f48_04_Nama_30 = s.getString(30);
+            extractor.f48_05_Alamat_45 = s.getString(45);
+            extractor.f48_06_Kecamatan_30 = s.getString(30);
+            extractor.f48_08_Kotamadya_30 = s.getString(30);
+            extractor.f48_09_JmlTagihan_12 = s.getString(12);
+            extractor.f48_10_KodeRekPokok_10 = s.getString(10);
+            extractor.f48_11_JmlPokok_12 = s.getString(12);
+            extractor.f48_12_KodeRekSanksi_10 = s.getString(10);
+            extractor.f48_13_JmlSanksi_12 = s.getString(12);
+            extractor.f48_14_KodeRekBunga_10 = s.getString(10);
+            extractor.f48_15_JmlBunga_12 = s.getString(12);
+            extractor.f48_16_KodeRekDenda_10 = s.getString(10);
+            extractor.f48_17_JmlDenda_12 = s.getString(12);
+            extractor.f48_18_JmlAdmin_12 = s.getString(12);
+
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+
+        }
+        catch
+        {
+            outputData = "";
+                        toastService.ShowError("Message salah", "FAIL");
+        }
+
+    }
+    public void ExtractField48PaymentRequest()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.f48_01_Product_2 = s.getString(2);
+            extractor.f48_02_KodeBayar_18 = s.getString(18);
+            extractor.f48_19_Period_4 = s.getString(4);
+            extractor.f48_09_JmlTagihan_12 = s.getString(12);
+            extractor.f48_11_JmlPokok_12 = s.getString(12);
+            extractor.f48_13_JmlSanksi_12 = s.getString(12);
+            extractor.f48_15_JmlBunga_12 = s.getString(12);
+            extractor.f48_17_JmlDenda_12 = s.getString(12);
+            extractor.f48_10_KodeRekPokok_10 = s.getString(10);
+            extractor.f48_12_KodeRekSanksi_10 = s.getString(10);
+            extractor.f48_14_KodeRekBunga_10 = s.getString(10);
+            extractor.f48_16_KodeRekDenda_10 = s.getString(10);
+            extractor.f48_18_JmlAdmin_12 = s.getString(12);
+
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+        }
+        catch
+        {
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+    }
+    public void ExtractField48PaymentResponse()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.f48_01_Product_2 = s.getString(2);
+            extractor.f48_02_KodeBayar_18 = s.getString(18);
+            extractor.f48_19_Period_4 = s.getString(4);
+            extractor.f48_09_JmlTagihan_12 = s.getString(12);
+            extractor.f48_11_JmlPokok_12 = s.getString(12);
+            extractor.f48_13_JmlSanksi_12 = s.getString(12);
+            extractor.f48_15_JmlBunga_12 = s.getString(12);
+            extractor.f48_17_JmlDenda_12 = s.getString(12);
+            extractor.f48_10_KodeRekPokok_10 = s.getString(10);
+            extractor.f48_12_KodeRekSanksi_10 = s.getString(10);
+            extractor.f48_14_KodeRekBunga_10 = s.getString(10);
+            extractor.f48_16_KodeRekDenda_10 = s.getString(10);
+            extractor.f48_18_JmlAdmin_12 = s.getString(12);
+            extractor.f48_20_BuktiBayar_16 = s.getString(16);
+
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+        }
+        catch
+        {
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+    }
+    public void ClearTextBox()
+    {
+        inputData = "";
+        outputData = "";
+    }
+
+}

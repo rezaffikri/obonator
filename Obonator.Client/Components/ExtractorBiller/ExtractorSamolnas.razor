@@ -1,0 +1,214 @@
+﻿@using System.Text.Json;
+
+
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Input</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea " rows="3" @bind="inputData" placeholder="Input"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><label class="label">Output</label></div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" rows="9" @bind="outputData" placeholder="Output" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal"><!----></div>
+    <div class="field-body">
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField62Inquiry">
+                    Extract Inq
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ExtractField61Payment">
+                    Extract Pay
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-primary" @onclick="ClearTextBox">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+
+    public class Extractor
+    {
+        public string f62_01_kdbayar_16 { get; set; }
+        public string f62_02_nopol_12 { get; set; }
+        public string f62_03_ModulTransaksi_2 { get; set; }
+        public string f62_04_Jenis_40 { get; set; }
+        public string f62_05_Merk_20 { get; set; }
+        public string f62_06_Type_20 { get; set; }
+        public string f62_07_TahunPembuatan_4 { get; set; }
+        public string f62_08_CC_5 { get; set; }
+        public string f62_09_NoRangka_25 { get; set; }
+        public string f62_10_NoMesin_25 { get; set; }
+        public string f62_11_pkbpokok_12 { get; set; }
+        public string f62_12_pkbdenda_12 { get; set; }
+        public string f62_13_pkbbunga_12 { get; set; }
+        public string f62_14_BebanPokok_12 { get; set; }
+        public string f62_15_BebanDenda_12 { get; set; }
+        public string f62_16_jrpokok_12 { get; set; }
+        public string f62_17_jrdenda_12 { get; set; }
+        public string f62_18_PNBP_12 { get; set; }
+        public string f62_19_tnkb_12 { get; set; }
+        public string f62_20_parkirpokok_12 { get; set; }
+        public string f62_21_Nominal_Progresif_12 { get; set; }
+        public string f62_22_Progresif_3 { get; set; }
+        public string f62_23_Nama_25 { get; set; }
+        public string f62_24_Alamat_40 { get; set; }
+        public string f62_25_tglAwalPajak_8 { get; set; }
+        public string f62_26_tglAkhirPajak_8 { get; set; }
+        public string f62_27_KodeLoket_2 { get; set; }
+        public string f62_28_BhnBakar_7 { get; set; }
+        public string f62_29_warna_6 { get; set; }
+        public string f62_30_ThRegistrasi_4 { get; set; }
+        public string f62_31_thbuat_4 { get; set; }
+        public string f62_32_NoBKKB_13 { get; set; }
+        public string f62_33_NIK_16 { get; set; }
+        public string f62_idreq_12 { get; set; }
+        public string f62_kdval_12 { get; set; }
+        public string f62_AdminBank_10 { get; set; }
+        public string f62_TotalRP { get; set; }
+        public string f62_BuktiBayar { get; set; }
+    }
+    public void ExtractField62Inquiry()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.f62_01_kdbayar_16 = s.getString(18);
+            extractor.f62_02_nopol_12 = s.getString(12);
+            extractor.f62_03_ModulTransaksi_2 = s.getString(2);
+            extractor.f62_04_Jenis_40 = s.getString(40);
+            extractor.f62_05_Merk_20 = s.getString(20);
+            extractor.f62_06_Type_20 = s.getString(20);
+            extractor.f62_07_TahunPembuatan_4 = s.getString(4);
+            extractor.f62_08_CC_5 = s.getString(5);
+            extractor.f62_09_NoRangka_25 = s.getString(25);
+            extractor.f62_10_NoMesin_25 = s.getString(25);
+            extractor.f62_11_pkbpokok_12 = s.getString(12);
+            extractor.f62_12_pkbdenda_12 = s.getString(12);
+            extractor.f62_13_pkbbunga_12 = s.getString(12);
+            extractor.f62_14_BebanPokok_12 = s.getString(12);
+            extractor.f62_15_BebanDenda_12 = s.getString(12);
+            extractor.f62_16_jrpokok_12 = s.getString(12);
+            extractor.f62_17_jrdenda_12 = s.getString(12);
+            extractor.f62_18_PNBP_12 = s.getString(12);
+            extractor.f62_19_tnkb_12 = s.getString(12);
+            extractor.f62_20_parkirpokok_12 = s.getString(12);
+            extractor.f62_21_Nominal_Progresif_12 = s.getString(12);
+            extractor.f62_22_Progresif_3 = s.getString(3);
+            extractor.f62_23_Nama_25 = s.getString(25);
+            extractor.f62_24_Alamat_40 = s.getString(40);
+            extractor.f62_25_tglAwalPajak_8 = s.getString(8);
+            extractor.f62_26_tglAkhirPajak_8 = s.getString(8);
+            extractor.f62_27_KodeLoket_2 = s.getString(3);
+            extractor.f62_28_BhnBakar_7 = s.getString(7);
+            extractor.f62_29_warna_6 = s.getString(6);
+            extractor.f62_30_ThRegistrasi_4 = s.getString(4);
+            extractor.f62_31_thbuat_4 = s.getString(4);
+            extractor.f62_32_NoBKKB_13 = s.getString(13);
+            extractor.f62_33_NIK_16 = s.getString(16);
+            extractor.f62_idreq_12 = s.getString(12);
+            extractor.f62_kdval_12 = s.getString(16);
+            extractor.f62_AdminBank_10 = s.getString(10);
+            extractor.f62_TotalRP = s.getString(12);
+
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+
+        }
+        catch
+        {
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+
+    }
+    public void ExtractField61Payment()
+    {
+        try
+        {
+            ObonCommon.StrUtil s = new ObonCommon.StrUtil(inputData);
+            Extractor extractor = new Extractor();
+
+            extractor.f62_01_kdbayar_16 = s.getString(18);
+            extractor.f62_02_nopol_12 = s.getString(12);
+            extractor.f62_03_ModulTransaksi_2 = s.getString(2);
+            extractor.f62_04_Jenis_40 = s.getString(40);
+            extractor.f62_05_Merk_20 = s.getString(20);
+            extractor.f62_06_Type_20 = s.getString(20);
+            extractor.f62_07_TahunPembuatan_4 = s.getString(4);
+            extractor.f62_08_CC_5 = s.getString(5);
+            extractor.f62_09_NoRangka_25 = s.getString(25);
+            extractor.f62_10_NoMesin_25 = s.getString(25);
+            extractor.f62_11_pkbpokok_12 = s.getString(12);
+            extractor.f62_12_pkbdenda_12 = s.getString(12);
+            extractor.f62_13_pkbbunga_12 = s.getString(12);
+            extractor.f62_14_BebanPokok_12 = s.getString(12);
+            extractor.f62_15_BebanDenda_12 = s.getString(12);
+            extractor.f62_16_jrpokok_12 = s.getString(12);
+            extractor.f62_17_jrdenda_12 = s.getString(12);
+            extractor.f62_18_PNBP_12 = s.getString(12);
+            extractor.f62_19_tnkb_12 = s.getString(12);
+            extractor.f62_20_parkirpokok_12 = s.getString(12);
+            extractor.f62_21_Nominal_Progresif_12 = s.getString(12);
+            extractor.f62_22_Progresif_3 = s.getString(3);
+            extractor.f62_23_Nama_25 = s.getString(25);
+            extractor.f62_24_Alamat_40 = s.getString(40);
+            extractor.f62_25_tglAwalPajak_8 = s.getString(8);
+            extractor.f62_26_tglAkhirPajak_8 = s.getString(8);
+            extractor.f62_27_KodeLoket_2 = s.getString(3);
+            extractor.f62_28_BhnBakar_7 = s.getString(7);
+            extractor.f62_29_warna_6 = s.getString(6);
+            extractor.f62_30_ThRegistrasi_4 = s.getString(4);
+            extractor.f62_31_thbuat_4 = s.getString(4);
+            extractor.f62_32_NoBKKB_13 = s.getString(13);
+            extractor.f62_33_NIK_16 = s.getString(16);
+            extractor.f62_kdval_12 = s.getString(16);
+            extractor.f62_AdminBank_10 = s.getString(10);
+            extractor.f62_TotalRP = s.getString(12);
+            extractor.f62_BuktiBayar = s.getString(16);
+
+            JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+            jsonSerializerOptions.WriteIndented = true;
+            outputData = JsonSerializer.Serialize(extractor, jsonSerializerOptions);
+        }
+        catch
+        {
+            outputData = "";
+            toastService.ShowError("Message salah", "FAIL");
+        }
+    }
+    public void ClearTextBox()
+    {
+        inputData = "";
+        outputData = "";
+    }
+
+}

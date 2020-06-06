@@ -1,0 +1,206 @@
+﻿h1 {
+    display: block;
+    font-weight: bold;
+
+    &.is-normal {
+        font-size: 2em;
+    }
+
+    &.is-big {
+        font-size: 4em;
+    }
+
+    &.is-bigger {
+        font-size: 6em;
+    }
+}
+
+h2 {
+    display: block;
+    font-weight: bold;
+
+    &.is-normal {
+        font-size: 1.75em;
+    }
+
+    &.is-big {
+        font-size: 3.5em;
+    }
+
+    &.is-bigger {
+        font-size: 5.25em;
+    }
+}
+
+h3 {
+    display: block;
+    font-weight: bold;
+
+    &.is-normal {
+        font-size: 1.5em;
+    }
+
+    &.is-big {
+        font-size: 3em;
+    }
+
+    &.is-bigger {
+        font-size: 4.5em;
+    }
+}
+
+h4 {
+    display: block;
+    font-weight: bold;
+
+    &.is-normal {
+        font-size: 1.25em;
+    }
+
+    &.is-big {
+        font-size: 2.5em;
+    }
+
+    &.is-bigger {
+        font-size: 3.75em;
+    }
+}
+
+h5 {
+    display: block;
+    font-weight: bold;
+
+    &.is-normal {
+        font-size: 1em;
+    }
+
+    &.is-big {
+        font-size: 2em;
+    }
+
+    &.is-bigger {
+        font-size: 3em;
+    }
+}
+
+h6 {
+    display: block;
+    font-weight: bold;
+
+    &.is-normal {
+        font-size: 0.75em;
+    }
+
+    &.is-big {
+        font-size: 1.5em;
+    }
+
+    &.is-bigger {
+        font-size: 2.25em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    h1 {
+        display: block;
+        font-weight: bold;
+
+        &.is-normal {
+            font-size: 2em;
+        }
+
+        &.is-big {
+            font-size: 2.75em;
+        }
+
+        &.is-bigger {
+            font-size: 3.5em;
+        }
+    }
+
+    h2 {
+        display: block;
+        font-weight: bold;
+
+        &.is-normal {
+            font-size: 1.75em;
+        }
+
+        &.is-big {
+            font-size: 2.5em;
+        }
+
+        &.is-bigger {
+            font-size: 3.25em;
+        }
+    }
+
+    h3 {
+        display: block;
+        font-weight: bold;
+
+        &.is-normal {
+            font-size: 1.5em;
+        }
+
+        &.is-big {
+            font-size: 2.25em;
+        }
+
+        &.is-bigger {
+            font-size: 3em;
+        }
+    }
+
+    h4 {
+        display: block;
+        font-weight: bold;
+
+        &.is-normal {
+            font-size: 1.25em;
+        }
+
+        &.is-big {
+            font-size: 2em;
+        }
+
+        &.is-bigger {
+            font-size: 2.75em;
+        }
+    }
+
+    h5 {
+        display: block;
+        font-weight: bold;
+
+        &.is-normal {
+            font-size: 1em;
+        }
+
+        &.is-big {
+            font-size: 1.75em;
+        }
+
+        &.is-bigger {
+            font-size: 2.5em;
+        }
+    }
+
+    h6 {
+        display: block;
+        font-weight: bold;
+
+        &.is-normal {
+            font-size: 0.75em;
+        }
+
+        &.is-big {
+            font-size: 1.5em;
+        }
+
+        &.is-bigger {
+            font-size: 2em;
+        }
+    }
+}

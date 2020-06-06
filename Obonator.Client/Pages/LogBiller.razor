@@ -1,0 +1,74 @@
+﻿@page "/log"
+
+@attribute [Authorize(Roles = "admin, qa")]
+<nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
+    <ul>
+        <li>
+            <a href="#">
+                Obonator
+            </a>
+        </li>
+        <li class="is-active">
+            <a href="#" aria-current="page">Log</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="obon-box">
+    <div class="obon-box-header">
+        <h1 class="subtitle has-text-centered">
+            Log Biller
+        </h1>
+    </div>
+    <div class="obon-box-body">
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Biller</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select @onchange="DdlClicked">
+                                <option value="0">
+                                    Select
+                                </option>
+                                <option value="1">
+                                    PLN Postpaid
+                                </option>
+                                <option value="2">
+                                    PLN Prepaid
+                                </option>
+                                <option value="3">
+                                    PLN Nontaglis
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (ddlSelected == 1)
+        {
+
+        }
+        else if (ddlSelected == 2)
+        {
+
+        }
+        else if (ddlSelected == 3)
+        {
+            <LogPlnNontaglis />
+        }
+    </div>
+</div>
+@code{
+    public int ddlSelected { get; set; }
+
+    protected void DdlClicked(ChangeEventArgs countryEvent)
+    {
+        ddlSelected = int.Parse(countryEvent.Value.ToString());
+    }
+}
+

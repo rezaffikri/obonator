@@ -1,0 +1,80 @@
+﻿@page "/cryptography"
+
+@attribute [Authorize(Roles = "admin, se, qa")]
+<nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
+    <ul>
+        <li>
+            <a href="#">
+                Obonator
+            </a>
+        </li>
+        <li class="is-active">
+            <a href="#" aria-current="page">Cryptography</a>
+        </li>
+    </ul>
+</nav>
+<div class="obon-box">
+    <div class="obon-box-header">
+        <h1 class="subtitle has-text-centered">
+            Cryptography
+        </h1>
+    </div>
+    <div class="obon-box-body">
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Type</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select @onchange="DdlClicked">
+                                <option value="0">
+                                    Select
+                                </option>
+                                <option value="1">
+                                    TripleDes
+                                </option>
+                                <option value="2">
+                                    AES
+                                </option>
+                                <option value="3">
+                                    MD5
+                                </option>
+                                <option value="4">
+                                    Octopus Password
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (ddlSelected == 1)
+        {
+            <TripleDes />
+        }
+        else if (ddlSelected == 2)
+        {
+            <AES />
+        }
+        else if (ddlSelected == 3)
+        {
+            <MD5Hash />
+        }
+        else if (ddlSelected == 4)
+        {
+            <OctopusPassword />
+        }
+    </div>
+</div>
+@code{
+    public int ddlSelected { get; set; }
+
+    protected void DdlClicked(ChangeEventArgs countryEvent)
+    {
+        ddlSelected = int.Parse(countryEvent.Value.ToString());
+    }
+}
+

@@ -1,0 +1,108 @@
+﻿@using System.Text.Json
+@using System.Text.Encodings.Web;
+
+@page "/jsonescape"
+
+@attribute [Authorize(Roles = "admin, se, qa")]
+<nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
+    <ul>
+        <li>
+            <a href="#">
+                Obonator
+            </a>
+        </li>
+        <li class="is-active">
+            <a href="#" aria-current="page">Json Escape</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="obon-box">
+    <div class="obon-box-header">
+        <h1 class="subtitle has-text-centered">
+            JSON String Escape / Unescape
+        </h1>
+    </div>
+    <div class="obon-box-body">
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Input</label></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" @bind="inputData" placeholder="Input"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Output</label></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" rows="9" @bind="outputData" placeholder="Output" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><!----></div>
+            <div class="field-body">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-primary" @onclick="Escape">
+                            Escape
+                        </button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" @onclick="Unescape">
+                            Unescape
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+    public DateTime historyDateData { get; set; } = DateTime.Now;
+    public string historyUserData { get; set; }
+    public string historyNoteData { get; set; }
+    public string nameData { get; set; }
+    public string nameQueryData { get; set; }
+    public string billerCodeData { get; set; }
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+
+    public void Escape()
+    {
+        try
+        {
+
+            JsonSerializerOptions jsonSerializerOption = new JsonSerializerOptions();
+            jsonSerializerOption.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            outputData = JsonSerializer.Serialize(inputData, jsonSerializerOption);
+        }
+        catch (Exception)
+        {
+            outputData = "";
+            toastService.ShowError("Key atau input salah", "FAIL");
+        }
+    }
+    public void Unescape()
+    {
+        try
+        {
+            JsonSerializerOptions jsonSerializerOption = new JsonSerializerOptions();
+            jsonSerializerOption.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            outputData = JsonSerializer.Deserialize<string>(inputData, jsonSerializerOption);
+        }
+        catch (Exception)
+        {
+            outputData = "";
+            toastService.ShowError("Key atau input salah", "FAIL");
+        }
+    }
+}
+
