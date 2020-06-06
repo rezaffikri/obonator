@@ -28,5 +28,5 @@ jobs:
       with:
           GITHUB_TOKEN: 9e17ec6e7411032b791c94a7f28071bef0f1e2f7
           BRANCH: gh-pages
-          FOLDER: build/obonator.client/wwwroot
+          FOLDER: build/wwwroot
           CLEAN: true
