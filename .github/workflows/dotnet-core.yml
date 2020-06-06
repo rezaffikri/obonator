@@ -26,7 +26,7 @@ jobs:
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-          GITHUB_TOKEN: 9e17ec6e7411032b791c94a7f28071bef0f1e2f7
+          GITHUB_TOKEN: ${{ secrets.obonator }}
           BRANCH: gh-pages
           FOLDER: build/wwwroot
           CLEAN: true
