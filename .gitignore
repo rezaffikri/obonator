@@ -1,4 +1,4 @@
 bin
 # **/obj/Release/netstandard2.1
 # **/obj/Debug/
-obj
+# obj
