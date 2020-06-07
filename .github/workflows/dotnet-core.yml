@@ -22,9 +22,9 @@ jobs:
     - name: Build
       run: dotnet build .\obonator --configuration Release --no-restore
     - name: Test
-      run: dotnet test .\obonator --no-restore --verbosity normal
+      run: dotnet test .obonator --no-restore --verbosity normal
     - name: Publish with dotnet
-      run: dotnet publish .\obonator --configuration Release --output build
+      run: dotnet publish .obonator --configuration Release --output build
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
