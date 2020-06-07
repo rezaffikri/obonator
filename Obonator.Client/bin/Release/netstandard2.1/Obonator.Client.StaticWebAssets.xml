@@ -1,6 +1,0 @@
-﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="D:\Projects\rezaffikri\Obonator\Obonator.Client\bin\Release\netstandard2.1\wwwroot\" />
-  <ContentRoot BasePath="_content/Blazored.Toast" Path="C:\Users\Thinkpad\.nuget\packages\blazored.toast\3.1.2\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorise" Path="C:\Users\Thinkpad\.nuget\packages\blazorise\0.9.0.3\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorise.Bulma" Path="C:\Users\Thinkpad\.nuget\packages\blazorise.bulma\0.9.0.3\build\..\staticwebassets\" />
-</StaticWebAssets>
