@@ -1,5 +1,5 @@
 {
-  "short_name": "*Undefined*",
+  "short_name": "Obonator",
   "name": "Obonator.Client",
   "start_url": "/dev/",
   "display": "standalone",
