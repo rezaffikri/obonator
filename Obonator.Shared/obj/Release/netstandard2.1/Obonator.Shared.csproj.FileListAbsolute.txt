@@ -1,8 +1,0 @@
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\bin\Release\netstandard2.1\Obonator.Shared.deps.json
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\bin\Release\netstandard2.1\Obonator.Shared.dll
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\bin\Release\netstandard2.1\Obonator.Shared.pdb
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\obj\Release\netstandard2.1\Obonator.Shared.AssemblyInfoInputs.cache
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\obj\Release\netstandard2.1\Obonator.Shared.AssemblyInfo.cs
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\obj\Release\netstandard2.1\Obonator.Shared.csproj.CoreCompileInputs.cache
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\obj\Release\netstandard2.1\Obonator.Shared.dll
-D:\Projects\rezaffikri\Obonator\Obonator.Shared\obj\Release\netstandard2.1\Obonator.Shared.pdb
