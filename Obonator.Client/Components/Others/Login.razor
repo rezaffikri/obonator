@@ -58,7 +58,11 @@
         ShowErrors = true;
         var result = await AuthService.LocalLogin(_model);
 
-        if (result.Successful)
+        if (result.Successful && !result.IsDebug)
+        {
+            NavigationManager.NavigateTo("/obonator");
+        }
+        else if (result.Successful && result.IsDebug)
         {
             NavigationManager.NavigateTo("/");
         }

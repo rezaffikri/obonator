@@ -4,8 +4,16 @@
 
 @code { 
     protected override async Task OnInitializedAsync()
-    {
-        await AuthService.LocalLogout();
+    {      
+        var result = await AuthService.LocalLogout();
         NavigationManager.NavigateTo("/");
+        if (result.Successful && !result.IsDebug)
+        {
+            NavigationManager.NavigateTo("/obonator");
+        }
+        else if (result.Successful && result.IsDebug)
+        {
+            NavigationManager.NavigateTo("/");
+        }
     }
 }

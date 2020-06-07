@@ -39,6 +39,10 @@ namespace Obonator.Client.Services.Auth
         public async Task<LoginResult> LocalLogin(LoginModel loginModel)
         {
             LoginResult loginResult = new LoginResult();
+#if DEBUG
+            loginResult.IsDebug = true;
+#endif
+
             string role = ObonCommon.AuthLocal.CheckLogin(loginModel.Email, loginModel.Password);
             if (!string.IsNullOrEmpty(role))
             {
@@ -63,10 +67,16 @@ namespace Obonator.Client.Services.Auth
             return loginResult;
         }
 
-        public async Task LocalLogout()
+        public async Task<LoginResult> LocalLogout()
         {
+            LoginResult loginResult = new LoginResult();
+#if DEBUG
+            loginResult.IsDebug = true;
+#endif
             await _localStorage.RemoveItemAsync("authToken");
             ((ApiAuthenticationStateProvider)_authenticationStateProvider).MarkUserAsLoggedOut();
+            loginResult.Successful = true;
+            return loginResult;
         }
 
         public async Task<LoginResult> Login(LoginModel loginModel)

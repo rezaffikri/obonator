@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\dQbGmpGZTxRji4Sbjm7B2qsTnf-yayM_FtDtIC8OADk=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ielMf_oWCzCYKw5URneb9YQwkucTOGVpVi9wlf78jOs=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Obonator.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Obonator.Client.dll.gz"
     },
@@ -221,7 +221,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Blazorise.DataGrid.dll.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\abD4pIl-cgzUbeRGS3ERUVY9wrX-Hv_dk8kzDdmcVBY=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\y-cB43RVUlhch_qAdIYhEsUoYmT7ikhm_8pnztcpmmI=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Obonator.Shared.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Obonator.Shared.dll.gz"
     },
@@ -316,7 +316,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.AspNetCore.Components.Authorization.dll.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\buP_IysqH6RwEEIiLsnKaB4TURkWBK_mmEpaSzu7Vhs=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\rnZD-hd3bfYZUTIwy3PhmpvrxzYJrzNr5CMrRRAHlag=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Obonator.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Obonator.Client.pdb.gz"
     },
@@ -326,7 +326,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Obonator.Library.pdb.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\YuRlqZd6yfwKhVNB70lG8IxGr3ACnKgCrFGyPSdHAA4=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ffXOjw9PXt9_5j85HX0zzJPQBkChrJXE6TOuTGlHxyw=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Obonator.Shared.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Obonator.Shared.pdb.gz"
     },
@@ -351,7 +351,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\Q9ZBCQkyCV7bjZAqH84410k9FuWk_eeNv_Pzci1cwg0=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\lG8GaJOEfReRs9e4Dwklsi05a4z6iPo2U86nYR6ocXI=.hash",
       "Source": "D:\\Projects\\rezaffikri\\Obonator\\Obonator.Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.gz"
     }
