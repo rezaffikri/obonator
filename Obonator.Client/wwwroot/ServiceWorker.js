@@ -5,7 +5,7 @@ const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
 const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
-const staticCacheName = 'blazor-cache-v2';
+const staticCacheName = 'blazor-cache-v3';
 const requiredFiles = [
 "/obonator/404.html",
 "/obonator/css/app.css",

@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <ServiceWorkerForce>true</ServiceWorkerForce>
-    <ServiceWorkerCacheVersion>2</ServiceWorkerCacheVersion>
+    <ServiceWorkerCacheVersion>3</ServiceWorkerCacheVersion>
     <ServiceWorkerRegisterInstallableType>installable-blazor</ServiceWorkerRegisterInstallableType>
   </PropertyGroup>
 

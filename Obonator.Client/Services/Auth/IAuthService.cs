@@ -9,7 +9,7 @@ namespace Obonator.Client.Services.Auth
     public interface IAuthService
     {
         Task<LoginResult> LocalLogin(LoginModel loginModel);
-        Task<LoginResult> LocalLogout();
+        Task LocalLogout();
         Task<LoginResult> Login(LoginModel loginModel); 
         Task Logout(); 
         Task<RegisterResult> Register(RegisterModel registerModel);

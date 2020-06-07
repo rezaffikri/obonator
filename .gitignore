@@ -1,0 +1,6 @@
+bin
+**/obj/debug
+**/obj/*.json
+**/obj/*.targets
+**/obj/*.props
+**/obj/*.cache
