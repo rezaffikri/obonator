@@ -5,6 +5,7 @@
     <ServiceWorkerForce>true</ServiceWorkerForce>
     <ServiceWorkerCacheVersion>2</ServiceWorkerCacheVersion>
     <ServiceWorkerRegisterInstallableType>installable-blazor</ServiceWorkerRegisterInstallableType>
+    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
   </PropertyGroup>
 
   <Target Name="ObonPWA" BeforeTargets="CreatePWA">
