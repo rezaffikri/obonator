@@ -213,30 +213,33 @@ namespace Obonator.Library
                 string res = "";
                 try
                 {
-                    byte[] salt = new byte[8];
-                    using AesManaged managed = new AesManaged();
-                    using Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(key, salt);
-                    try
+                    using (AesManaged managed = new AesManaged())
                     {
-                        managed.BlockSize = 0x80;
-                        managed.KeySize = 0x100;
-                        managed.Key = bytes.GetBytes(managed.KeySize / 8);
-                        managed.IV = bytes.GetBytes(managed.BlockSize / 8);
-                        byte[] buffer2 = Convert.FromBase64String(input);
-                        res = DecryptStringFromBytes_Aes(buffer2, managed.Key, managed.IV);
-                        buffer2 = null;
+                        byte[] salt = new byte[8];
+                        using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(key, salt))
+                        {
+                            try
+                            {
+                                managed.BlockSize = 0x80;
+                                managed.KeySize = 0x100;
+                                managed.Key = bytes.GetBytes(managed.KeySize / 8);
+                                managed.IV = bytes.GetBytes(managed.BlockSize / 8);
+                                byte[] buffer2 = Convert.FromBase64String(input);
+                                res = DecryptStringFromBytes_Aes(buffer2, managed.Key, managed.IV);
+                                buffer2 = null;
+                            }
+                            catch (Exception ex)
+                            {
+                                string msg = ex.Message;
+                                string stack = ex.StackTrace;
+                            }
+                        }
                         salt = null;
                     }
-                    catch (Exception ex)
-                    {
-                        string msg = ex.Message;
-                        string stack = ex.StackTrace;
-                    }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
+                    return "";
                 }
                 return res;
             }
@@ -244,42 +247,44 @@ namespace Obonator.Library
             private static string DecryptStringFromBytes_Aes(byte[] p_bytContent, byte[] p_bytKey, byte[] p_ivIV)
             {
                 string str = null;
-                try
+                if ((p_bytContent == null) || (p_bytContent.Length == 0))
                 {
-                    if ((p_bytContent == null) || (p_bytContent.Length == 0))
-                    {
-                        throw new ArgumentNullException("p_bytContent");
-                    }
-                    if ((p_bytKey == null) || (p_bytKey.Length == 0))
-                    {
-                        throw new ArgumentNullException("p_bytKey");
-                    }
-                    if ((p_ivIV == null) || (p_ivIV.Length == 0))
-                    {
-                        throw new ArgumentNullException("p_bytKey");
-                    }
+                    return str;
+                }
+                if ((p_bytKey == null) || (p_bytKey.Length == 0))
+                {
+                    return str;
+                }
+                if ((p_ivIV == null) || (p_ivIV.Length == 0))
+                {
+                    return str;
+                }
 
-                    using AesManaged managed = new AesManaged();
+                using (AesManaged managed = new AesManaged())
+                {
                     managed.Key = p_bytKey;
                     managed.IV = p_ivIV;
-                    using ICryptoTransform transform = managed.CreateDecryptor(managed.Key, managed.IV);
-                    using MemoryStream stream = new MemoryStream(p_bytContent);
-                    using CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Read);
-                    using StreamReader reader = new StreamReader(stream2);
-                    try
+                    using (ICryptoTransform transform = managed.CreateDecryptor(managed.Key, managed.IV))
                     {
-                        str = reader.ReadToEnd();
+                        using (MemoryStream stream = new MemoryStream(p_bytContent))
+                        {
+                            using (CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Read))
+                            {
+                                using (StreamReader reader = new StreamReader(stream2))
+                                {
+                                    try
+                                    {
+                                        str = reader.ReadToEnd();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        string msg = ex.Message;
+                                        string stack = ex.StackTrace;
+                                    }
+                                }
+                            }
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        string msg = ex.Message;
-                        string stack = ex.StackTrace;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
                 }
                 return str;
             }
@@ -289,30 +294,33 @@ namespace Obonator.Library
                 string res = "";
                 try
                 {
-                    using AesManaged managed = new AesManaged();
-                    byte[] salt = new byte[8];
-                    using Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(key, salt);
-                    try
+                    using (AesManaged managed = new AesManaged())
                     {
-                        managed.BlockSize = 0x80;
-                        managed.KeySize = 0x100;
-                        managed.Key = bytes.GetBytes(managed.KeySize / 8);
-                        managed.IV = bytes.GetBytes(managed.BlockSize / 8);
-                        byte[] inArray = EncryptStringToBytes_Aes(input, managed.Key, managed.IV);
-                        res = Convert.ToBase64String(inArray);
-                        inArray = null;
+                        byte[] salt = new byte[8];
+                        using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(key, salt))
+                        {
+                            try
+                            {
+                                managed.BlockSize = 0x80;
+                                managed.KeySize = 0x100;
+                                managed.Key = bytes.GetBytes(managed.KeySize / 8);
+                                managed.IV = bytes.GetBytes(managed.BlockSize / 8);
+                                byte[] inArray = EncryptStringToBytes_Aes(input, managed.Key, managed.IV);
+                                res = Convert.ToBase64String(inArray);
+                                inArray = null;
+                            }
+                            catch (Exception ex)
+                            {
+                                string msg = ex.Message;
+                                string stack = ex.StackTrace;
+                            }
+                            salt = null;
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        string msg = ex.Message;
-                        string stack = ex.StackTrace;
-                    }
-                    salt = null;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
+                    return "";
                 }
                 return res;
             }
@@ -320,43 +328,52 @@ namespace Obonator.Library
             private static byte[] EncryptStringToBytes_Aes(string inputData, byte[] p_bytKey, byte[] p_ivIV)
             {
                 byte[] buffer = null;
-                try
+                if ((inputData == null) || (inputData.Length <= 0))
                 {
-                    if ((inputData == null) || (inputData.Length <= 0))
-                    {
-                        throw new ArgumentNullException("inputData");
-                    }
-                    if ((p_bytKey == null) || (p_bytKey.Length == 0))
-                    {
-                        throw new ArgumentNullException("p_bytKey");
-                    }
-                    if ((p_ivIV == null) || (p_ivIV.Length == 0))
-                    {
-                        throw new ArgumentNullException("p_bytKey");
-                    }
-
-                    using AesManaged managed = new AesManaged();
+                    throw new ArgumentNullException("inputData");
+                }
+                if ((p_bytKey == null) || (p_bytKey.Length == 0))
+                {
+                    throw new ArgumentNullException("p_bytKey");
+                }
+                if ((p_ivIV == null) || (p_ivIV.Length == 0))
+                {
+                    throw new ArgumentNullException("p_bytKey");
+                }
+                using (AesManaged managed = new AesManaged())
+                {
                     managed.Key = p_bytKey;
                     managed.IV = p_ivIV;
-                    using ICryptoTransform transform = managed.CreateEncryptor(managed.Key, managed.IV);
-                    using MemoryStream stream = new MemoryStream();
-                    using CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Write);
-                    using StreamWriter writer = new StreamWriter(stream2);
-                    try
+                    using (ICryptoTransform transform = managed.CreateEncryptor(managed.Key, managed.IV))
                     {
-                        writer.Write(inputData);
-                        buffer = stream.ToArray();
+                        using (MemoryStream stream = new MemoryStream())
+                        {
+                            using (CryptoStream stream2 = new CryptoStream(stream, transform, CryptoStreamMode.Write))
+                            {
+                                using (StreamWriter writer = new StreamWriter(stream2))
+                                {
+                                    try
+                                    {
+                                        writer.Write(inputData);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        string msg = ex.Message;
+                                        string stack = ex.StackTrace;
+                                    }
+                                }
+                                try
+                                {
+                                    buffer = stream.ToArray();
+                                }
+                                catch (Exception ex)
+                                {
+                                    string msg = ex.Message;
+                                    string stack = ex.StackTrace;
+                                }
+                            }
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        string msg = ex.Message;
-                        string stack = ex.StackTrace;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
                 }
                 return buffer;
             }

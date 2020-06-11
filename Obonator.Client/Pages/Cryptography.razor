@@ -50,31 +50,155 @@
                 </div>
             </div>
         </div>
-
-        @if (ddlSelected == 1)
+        @if(ddlSelected != 0)
         {
-            <TripleDes />
+        @if(ddlSelected != 3)
+        {
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Key</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="text" @bind="keyData" placeholder="Key">
+                    </p>
+                </div>
+            </div>
+        </div>
         }
-        else if (ddlSelected == 2)
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Input</label></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" @bind="inputData" placeholder="Input"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Output</label></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" @bind="outputData" placeholder="Output" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+                @if(ddlSelected == 1)
         {
-            <AES />
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Output Format</label></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <RadioGroup TValue="string" Name="colors" CheckedValue="@rdTypeValue" CheckedValueChanged="@OnCheckedValueChanged">
+                            <Radio TValue="string" Value="@("1")">Plain</Radio>
+                            <Radio TValue="string" Value="@("2")">Hex</Radio>
+                        </RadioGroup>
+                    </div>
+                </div>
+            </div>
+        </div>
         }
-        else if (ddlSelected == 3)
-        {
-            <MD5Hash />
-        }
-        else if (ddlSelected == 4)
-        {
-            <OctopusPassword />
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><!----></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-primary" @onclick="BtnEncrypt">
+                                Encrypt
+                            </button>
+                        </div>
+                        @if (ddlSelected != 3)
+                        {
+                        <div class="control">
+                            <button class="button is-primary" @onclick="BtnDecrypt">
+                                Decrypt
+                            </button>
+                        </div>                        
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
         }
     </div>
 </div>
 @code{
+    private string keyData;
+    private string inputData;
+    private string outputData;
     public int ddlSelected { get; set; }
+    private string rdTypeValue = "1";
+    private bool isHex;
+
+    void OnCheckedValueChanged(string value)
+    {
+        if (value.Equals("1"))
+        {
+
+            isHex = false;
+        }
+        else
+        {
+            isHex = true;
+        }
+        rdTypeValue = value;
+    }
 
     protected void DdlClicked(ChangeEventArgs countryEvent)
     {
         ddlSelected = int.Parse(countryEvent.Value.ToString());
+    }
+
+    public void BtnEncrypt()
+    {
+        switch (ddlSelected)
+        {
+            case 1:
+                outputData = ObonCryptography.TripleDes.Encrypt(keyData, inputData, isHex);
+                break;
+            case 2:
+                outputData = ObonCryptography.AES.Encrypt(keyData, inputData);
+                break;
+            case 3:
+                outputData = ObonCryptography.MD5Hash.Hash(inputData);
+                break;
+            case 4:
+                outputData = ObonCryptography.TripleDes.EncryptOct(inputData);
+                break;
+        }
+
+        if (string.IsNullOrEmpty(outputData))
+        {
+            toastService.ShowError("Key atau input salah", "FAIL");
+        }
+    }
+
+    public void BtnDecrypt()
+    {
+        switch (ddlSelected)
+        {
+            case 1:
+                outputData = ObonCryptography.TripleDes.Decrypt(keyData, inputData, isHex);
+                break;
+            case 2:
+        outputData = ObonCryptography.AES.Decrypt(keyData, inputData);
+                break;
+            case 3:
+                outputData = ObonCryptography.MD5Hash.Hash(inputData);
+                break;
+            case 4:
+                outputData = ObonCryptography.TripleDes.DecryptOct(inputData);
+                break;
+        }
+        if (string.IsNullOrEmpty(outputData))
+        {
+            toastService.ShowError("Key atau input salah", "FAIL");
+        }
     }
 }
 

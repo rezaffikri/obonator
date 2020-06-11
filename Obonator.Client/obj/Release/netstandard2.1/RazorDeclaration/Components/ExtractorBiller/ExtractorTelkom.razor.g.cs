@@ -134,34 +134,27 @@ using Obonator.Client.Shared;
 #nullable disable
 #nullable restore
 #line 23 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
-using Obonator.Client.Components.Cryptography;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 24 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
 using Obonator.Client.Components.ExtractorBiller;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 25 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
+#line 24 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
 using Obonator.Client.Helper;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 26 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
+#line 25 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
 using Obonator.Client.Components.LogBiller;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 27 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
+#line 26 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
 using Obonator.Client.Components.Others;
 
 #line default

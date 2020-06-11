@@ -6,6 +6,13 @@
     protected override async Task OnInitializedAsync()
     {      
         await AuthService.LocalLogout();
-        NavigationManager.NavigateTo("/obonator");
+            @if (ObonCommon.AppConstants.IS_DEBUG)
+            {
+                 NavigationManager.NavigateTo("/");
+            }
+            else
+            {
+                 NavigationManager.NavigateTo("/obonator"); 
+            }  
     }
 }

@@ -8,7 +8,7 @@
             "type": "blazorwasm",
             "browser": "edge",
             "name": "Attach and Debug Blazor WebAssembly Application",
-            "request":"attach"
+            "request":"launch"
         }
     ]
 }
