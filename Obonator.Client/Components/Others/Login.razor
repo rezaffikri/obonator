@@ -1,4 +1,5 @@
-﻿@inject IAuthService AuthService
+﻿
+@inject Services.Auth.IAuthService AuthService
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
@@ -60,14 +61,8 @@
 
         if (result.Successful)
         {
-            @if (ObonCommon.AppConstants.IS_DEBUG)
-            {
-                NavigationManager.NavigateTo("/");
-            }
-            else
-            {
-                NavigationManager.NavigateTo("/obonator"); 
-            }   
+            string baseUrl = ObonCommon.AppConstants.IS_DEBUG == true ? "/" :"/obonator";
+            NavigationManager.NavigateTo(baseUrl);
         }
         else
         {

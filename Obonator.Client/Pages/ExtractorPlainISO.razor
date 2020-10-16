@@ -1,0 +1,135 @@
+﻿@using System.Text.Json
+@using System.Text.Encodings.Web;
+
+@page "/extractoriso"
+
+@attribute [Authorize(Roles = "admin, qa")]
+<nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
+    <ul>
+        <li>
+            <a href="#">
+                Obonator
+            </a>
+        </li>
+        <li class="is-active">
+            <a href="#" aria-current="page">Json Escape</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="obon-box">
+    <div class="obon-box-header">
+        <h1 class="subtitle has-text-centered">
+            Extractor Plain ISO
+        </h1>
+    </div>
+    <div class="obon-box-body">
+                <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Type</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select @onchange="DdlClicked">
+                                <option value="0">
+                                    Inq Req
+                                </option>
+                                <option value="1">
+                                    Inq Res
+                                </option>
+                                <option value="2">
+                                    Pay
+                                </option>
+                                <option value="3">
+                                    Adv
+                                </option>
+                                <option value="4">
+                                   Rev
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Input</label></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" @bind="inputData" placeholder="Input"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><label class="label">Output</label></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" rows="9" @bind="outputData" placeholder="Output" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal"><!----></div>
+            <div class="field-body">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-primary" @onclick="Extract">
+                            Extract
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+    public int ddlSelected { get; set; }
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+
+    protected void DdlClicked(ChangeEventArgs eventArgs)
+    {
+        ddlSelected = int.Parse(eventArgs.Value.ToString());
+    }
+
+    public void Extract()
+    {
+        try
+        {
+            if(string.IsNullOrEmpty(inputData)){
+            outputData = "";
+            toastService.ShowError("input data harus tidak boleh kosong", "FAIL");
+            return;
+            }
+            switch (ddlSelected)
+            {
+                case 0:
+                    outputData = Services.ExtractorISO.ExtractorISO.ExtractInqReq(inputData);
+                    break;
+                @* case 2:
+                    outputData = ObonCryptography.AES.Encrypt(keyData, inputData);
+                    break;
+                case 3:
+                    outputData = ObonCryptography.MD5Hash.Hash(inputData);
+                    break;
+                case 4:
+                    outputData = ObonCryptography.TripleDes.EncryptOct(inputData);
+                    break; *@
+            }
+        }
+        catch (Exception)
+        {
+            outputData = "";
+            toastService.ShowError("Key atau input salah", "FAIL");
+        }
+    }
+}
+

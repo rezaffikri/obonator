@@ -10,23 +10,34 @@ namespace Obonator.Library
 
         private string _CurrentDir;
         private string _CurrentFileName;
+        private bool _IsLogOn;
 
         public ObonLogger()
         {
             _CurrentDir = DEFAULT_DIR;
-            _CurrentFileName = "eventlog";
+            _CurrentFileName = "Obonator";
+            _IsLogOn = true;
         }
 
         public ObonLogger(string LogName)
         {
             _CurrentDir = DEFAULT_DIR;
             _CurrentFileName = LogName;
+            _IsLogOn = true;
         }
 
         public ObonLogger(string LogDir, string LogName)
         {
             _CurrentDir = LogDir;
             _CurrentFileName = LogName;
+            _IsLogOn = true;
+        }
+
+        public ObonLogger(string LogDir, string LogName, bool IsLogOn)
+        {
+            _CurrentDir = LogDir;
+            _CurrentFileName = LogName;
+            _IsLogOn = IsLogOn;
         }
 
         public void Log(string Message)
@@ -41,6 +52,10 @@ namespace Obonator.Library
 
         private void WriteLog(string Message, string StackTrace)
         {
+            if (!_IsLogOn)
+            {
+                return;
+            }
             string LogFileName;
 
             for (int i = 0; i < MAX_TRY; i++)

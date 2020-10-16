@@ -38,5 +38,32 @@ namespace Obonator.Library
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
+
+        public class StrUtil
+        {
+            public string Str { get; set; }
+            private int SubBefore { get; set; }
+
+            public StrUtil(string s)
+            {
+                Str = s;
+                SubBefore = 0;
+            }
+
+            public string GetString(int sub)
+            {
+                try
+                {
+                    string result = Str.Substring(SubBefore, sub);
+                    SubBefore = SubBefore + sub;
+                    return result;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+        }
     }
 }
