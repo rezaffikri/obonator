@@ -4,6 +4,7 @@
     <Authors>Reza F. Fikri</Authors>
     <Company>Obonator</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
