@@ -5,9 +5,9 @@ namespace Obonator.Library
 {
     public class ObonNumber
     {
+        private static Random mRandom = new Random();
         public static string GenerateRandomNumber(int length)
         {
-            Random mRandom = new Random();
             char[] chArray = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             StringBuilder str = new StringBuilder();
             for (int i = 1; i <= length; i++)
