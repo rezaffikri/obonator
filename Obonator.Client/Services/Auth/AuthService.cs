@@ -39,15 +39,24 @@ namespace Obonator.Client.Services.Auth
         public async Task<LoginResult> LocalLogin(LoginModel loginModel)
         {
             LoginResult loginResult = new LoginResult();
-            string role = ObonCommon.AuthLocal.CheckLogin(loginModel.Email, loginModel.Password);
-            if (!string.IsNullOrEmpty(role))
+            string role = "";
+            if (loginModel.IsGuest)
             {
+                role = "guest";
                 loginResult.Successful = true;
             }
             else
             {
-                loginResult.Successful = false;
-                loginResult.Error = "User atau Password salah";
+                role = ObonCommon.AuthLocal.CheckLogin(loginModel.Email, loginModel.Password);
+                if (!string.IsNullOrEmpty(role))
+                {
+                    loginResult.Successful = true;
+                }
+                else
+                {
+                    loginResult.Successful = false;
+                    loginResult.Error = "User atau Password salah";
+                }
             }
 
             if (loginResult.Successful)

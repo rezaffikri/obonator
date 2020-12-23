@@ -15,5 +15,6 @@ namespace Obonator.Shared.Auth
         public string Password { get; set; }
 
         public bool RememberMe { get; set; }
+        public bool IsGuest { get; set; }
     }
 }

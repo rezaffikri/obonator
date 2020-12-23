@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase;
 @using Blazored.Toast.Configuration
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <AuthorizeView>
     <Authorized>
@@ -50,9 +51,19 @@
     [Inject] IJSRuntime JSRuntime { get; set; }
     static bool Installable = false;
     static Action ml;
-    protected override void OnInitialized()
+
+    protected override async Task OnInitializedAsync()
     {
-        ml = () => InvokeAsync(StateHasChanged);
+        try
+        {
+            ml = () => InvokeAsync(StateHasChanged);
+            collapseNavMenu = await localStorage.GetItemAsync<bool>("collapseNavMenu");
+        }
+        catch
+        {
+            //error server side
+        }
+
     }
 
     [JSInvokable("InstallPwaPrompt")]
@@ -73,12 +84,13 @@
         await JSRuntime.InvokeAsync<object>("BlazorPWA.installPWA");//this name comes from the nuget package that generates the pwa code, don't change it unless you change the generated code
     }
 
-    private bool collapseNavMenu = false;
+    private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "is-active" : null;
 
-    private void ToggleNavMenu()
+    private async Task ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+        await localStorage.SetItemAsync<bool>("collapseNavMenu", collapseNavMenu);
     }
 }

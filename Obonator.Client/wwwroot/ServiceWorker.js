@@ -1,5 +1,5 @@
-const baseURL = '/obonator/';
-const indexURL = '/obonator/index.html';
+const baseURL = '/dev/';
+const indexURL = '/dev/index.html';
 const networkFetchEvent = 'fetch';
 const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
@@ -7,40 +7,46 @@ const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
 const staticCacheName = 'blazor-cache-v6';
 const requiredFiles = [
-"/obonator/404.html",
-"/obonator/css/app.css",
-"/obonator/css/blazored-toast-custom.css",
-"/obonator/css/bootstrap/bootstrap.min.css",
-"/obonator/css/bootstrap/bootstrap.min.css.map",
-"/obonator/css/font-open-sans.css",
-"/obonator/css/login.css",
-"/obonator/css/minireset.css",
-"/obonator/css/obon.css",
-"/obonator/css/obonbaselayout.css",
-"/obonator/css/obonbox.css",
-"/obonator/css/obonbulma.css",
-"/obonator/css/oboncard.css",
-"/obonator/css/oboncolumns.css",
-"/obonator/css/oboncustom.css",
-"/obonator/css/open-iconic/FONT-LICENSE",
-"/obonator/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
-"/obonator/css/open-iconic/font/fonts/open-iconic.eot",
-"/obonator/css/open-iconic/font/fonts/open-iconic.otf",
-"/obonator/css/open-iconic/font/fonts/open-iconic.svg",
-"/obonator/css/open-iconic/font/fonts/open-iconic.ttf",
-"/obonator/css/open-iconic/font/fonts/open-iconic.woff",
-"/obonator/css/open-iconic/ICON-LICENSE",
-"/obonator/css/open-iconic/README.md",
-"/obonator/favicon.ico",
-"/obonator/img/icon-obon192.png",
-"/obonator/img/icon-obon512.png",
-"/obonator/img/logo.jpg",
-"/obonator/img/not_auth.jpg",
-"/obonator/img/splash-screen-cat-loading.gif",
-"/obonator/index.html",
-"/obonator/js/font-awesome.js",
-"/obonator/ServiceWorkerRegister.js",
-"/obonator/manifest.json"
+"/dev/404.html",
+"/dev/css/app.css",
+"/dev/css/blazored-toast-custom.css",
+"/dev/css/bootstrap/bootstrap.min.css",
+"/dev/css/bootstrap/bootstrap.min.css.map",
+"/dev/css/bulma/css/bulma-rtl.css",
+"/dev/css/bulma/css/bulma-rtl.css.map",
+"/dev/css/bulma/css/bulma-rtl.min.css",
+"/dev/css/bulma/css/bulma.css",
+"/dev/css/bulma/css/bulma.css.map",
+"/dev/css/bulma/css/bulma.min.css",
+"/dev/css/font-open-sans.css",
+"/dev/css/login.css",
+"/dev/css/minireset.css",
+"/dev/css/obon.css",
+"/dev/css/obonbaselayout.css",
+"/dev/css/obonbox.css",
+"/dev/css/obonbulma.css",
+"/dev/css/oboncard.css",
+"/dev/css/oboncolumns.css",
+"/dev/css/oboncustom.css",
+"/dev/css/open-iconic/FONT-LICENSE",
+"/dev/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
+"/dev/css/open-iconic/font/fonts/open-iconic.eot",
+"/dev/css/open-iconic/font/fonts/open-iconic.otf",
+"/dev/css/open-iconic/font/fonts/open-iconic.svg",
+"/dev/css/open-iconic/font/fonts/open-iconic.ttf",
+"/dev/css/open-iconic/font/fonts/open-iconic.woff",
+"/dev/css/open-iconic/ICON-LICENSE",
+"/dev/css/open-iconic/README.md",
+"/dev/favicon.ico",
+"/dev/img/icon-obon192.png",
+"/dev/img/icon-obon512.png",
+"/dev/img/logo.jpg",
+"/dev/img/not_auth.jpg",
+"/dev/img/splash-screen-cat-loading.gif",
+"/dev/index.html",
+"/dev/js/font-awesome.js",
+"/dev/ServiceWorkerRegister.js",
+"/dev/manifest.json"
 ];
 // * listen for the install event and pre-cache anything in filesToCache * //
 self.addEventListener(swInstallEvent, event => {
