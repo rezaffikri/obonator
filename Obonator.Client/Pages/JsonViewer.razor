@@ -1,0 +1,142 @@
+﻿@using System.Text.Json
+@using System.Text.Encodings.Web;
+
+@page "/jsoneviewer"
+
+@attribute [Authorize(Roles = "admin, guest")]
+<nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
+    <ul>
+        <li>
+            <a href="#">
+                Obonator
+            </a>
+        </li>
+        <li class="is-active">
+            <a href="#" aria-current="page">Json Viewer</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="obon-box">
+    <div class="obon-box-header">
+        <h1 class="subtitle has-text-centered">
+            JSON Viewer
+        </h1>
+    </div>
+    <div class="obon-box-body">
+        <div class="field is-horizontal">
+            <div class="field-body">
+                <div class="field">
+                    <label class="label">Input</label>
+                    <div class="control">
+                        <textarea class="textarea" rows="17" @bind="inputData" placeholder="Input"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Output</label>
+                    <div class="control">
+                        <textarea class="textarea" rows="17" @bind="outputData" placeholder="Output"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-body">
+                <div class="field is-grouped is-grouped-multiline">
+                    <div class="control">
+                        <button class="button is-primary" @onclick="Validator">
+                            Validator
+                        </button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" @onclick="Beautifier">
+                            Beautifier
+                        </button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" @onclick="Escape">
+                            Escape
+                        </button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" @onclick="Unescape">
+                            Unescape
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+    public string inputData { get; set; }
+    public string outputData { get; set; }
+    public int isSuccess = 0;
+    Services.Json.JsonService js;
+
+    protected override void OnInitialized()
+    {
+        js = new Services.Json.JsonService();
+    }
+
+    public void Validator()
+    {
+        try
+        {
+            outputData = js.JsonValidator(inputData);
+            if (string.IsNullOrEmpty(outputData))
+            {
+                toastService.ShowSuccess("JSON Valid", "SUCCESS");
+            }
+            else
+            {
+                toastService.ShowWarning("JSON Tidak Valid", "WARNING");
+            }
+        }
+        catch (Exception ex)
+        {
+            outputData = "";
+            toastService.ShowError("Gagal memvalidasi JSON", "FAIL");
+        }
+    }
+
+    public void Beautifier()
+    {
+        try
+        {
+            outputData = js.PrettyJson(inputData);
+        }
+        catch (Exception ex)
+        {
+            outputData = "";
+            toastService.ShowError("Gagal memvalidasi JSON", "FAIL");
+        }
+    }
+
+    public void Escape()
+    {
+        try
+        {
+            outputData = js.Escape(inputData);
+        }
+        catch (Exception)
+        {
+            outputData = "";
+            toastService.ShowError("Key atau input salah", "FAIL");
+        }
+    }
+    public void Unescape()
+    {
+        try
+        {
+            outputData = js.Unescape(inputData);
+        }
+        catch (Exception)
+        {
+            outputData = "";
+            toastService.ShowError("Key atau input salah", "FAIL");
+        }
+    }
+}
+

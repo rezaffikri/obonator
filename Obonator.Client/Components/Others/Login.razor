@@ -13,7 +13,7 @@
 }
 
 <div class="container has-text-centered">
-    <div class="obon-column is-4 is-offset-4">
+    <div class="column is-4 is-offset-4">
         <h3 class="title has-text-black">OBONATOR</h3>
         <hr class="login-hr">
         <div class="obon-box-box">
@@ -36,8 +36,14 @@
                 </div>
                 <div class="field">
                     <div class="control">
-                        <InputCheckbox @bind-Value="@_model.RememberMe"/>
+                        <InputCheckbox @bind-Value="@_model.RememberMe" />
                         <label> Remember Me</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <InputCheckbox @bind-Value="isGuest" />
+                        <label> Login as Guest</label>
                     </div>
                 </div>
                 <button type="submit" class="button is-block is-info is-fullwidth">
@@ -50,9 +56,34 @@
 </div>
 
 @code {
-    private LoginModel _model = new LoginModel();
+    private LoginModel _model;
     private bool ShowErrors;
     private string Error = "";
+
+    public bool isGuest
+    {
+        get { return _model.IsGuest; }
+        set
+        {
+            _model.IsGuest = value;
+            GuestChecker();
+        }
+    }
+
+    private void GuestChecker()
+    {
+        if (_model.IsGuest)
+        {
+            _model.Email = "guest";
+            _model.Password = "kepooo :p";
+        }
+        else
+        {
+            _model.Email = "";
+            _model.Password = "";
+        }
+    }
+
 
     private async Task HandleLogin()
     {
@@ -61,7 +92,7 @@
 
         if (result.Successful)
         {
-            string baseUrl = ObonCommon.AppConstants.IS_DEBUG == true ? "/" :"/obonator";
+            string baseUrl = ObonCommon.AppConstants.IS_DEBUG == true ? "/" : "/obonator";
             NavigationManager.NavigateTo(baseUrl);
         }
         else
@@ -79,6 +110,7 @@
     {
         try
         {
+            _model = new LoginModel();
             _model.Email = await localStorage.GetItemAsync<string>("authUser");
         }
         catch

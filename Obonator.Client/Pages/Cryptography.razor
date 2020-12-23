@@ -1,6 +1,6 @@
 ﻿@page "/cryptography"
 
-@attribute [Authorize(Roles = "admin, se, qa")]
+@attribute [Authorize(Roles = "admin, guest")]
 <nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
     <ul>
         <li>
@@ -29,42 +29,30 @@
                     <div class="control">
                         <div class="select">
                             <select @onchange="DdlClicked">
-                                <option value="0">
-                                    Select
-                                </option>
-                                <option value="1">
-                                    TripleDes
-                                </option>
-                                <option value="2">
-                                    AES
-                                </option>
-                                <option value="3">
-                                    MD5
-                                </option>
-                                <option value="4">
-                                    Octopus Password
-                                </option>
+                                <option value="1">TripleDes</option>
+                                <option value="2">AES</option>
+                                <option value="3">MD5</option>
+                                <option value="4">Octopus Password</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        @if(ddlSelected != 0)
+        @if (ddlSelected != 3 && ddlSelected != 4)
         {
-        @if(ddlSelected != 3)
-        {
-        <div class="field is-horizontal">
-            <div class="field-label is-normal"><label class="label">Key</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control">
-                        <input class="input" type="text" @bind="keyData" placeholder="Key">
-                    </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Key</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" type="text" @bind="keyData" placeholder="Key">
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
         }
         <div class="field is-horizontal">
             <div class="field-label is-normal"><label class="label">Input</label></div>
@@ -81,26 +69,26 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea" @bind="outputData" placeholder="Output" readonly></textarea>
+                        <textarea class="textarea" @bind="outputData" placeholder="Output"></textarea>
                     </div>
                 </div>
             </div>
         </div>
-                @if(ddlSelected == 1)
+        @if (ddlSelected == 1)
         {
-        <div class="field is-horizontal">
-            <div class="field-label is-normal"><label class="label">Output Format</label></div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <RadioGroup TValue="string" Name="colors" CheckedValue="@rdTypeValue" CheckedValueChanged="@OnCheckedValueChanged">
-                            <Radio TValue="string" Value="@("1")">Plain</Radio>
-                            <Radio TValue="string" Value="@("2")">Hex</Radio>
-                        </RadioGroup>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal"><label class="label">Output Format</label></div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <RadioGroup TValue="string" Name="colors" CheckedValue="@rdTypeValue" CheckedValueChanged="@OnCheckedValueChanged">
+                                <Radio TValue="string" Value="@("1")">Plain</Radio>
+                                <Radio TValue="string" Value="@("2")">Hex</Radio>
+                            </RadioGroup>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         }
         <div class="field is-horizontal">
             <div class="field-label is-normal"><!----></div>
@@ -114,24 +102,23 @@
                         </div>
                         @if (ddlSelected != 3)
                         {
-                        <div class="control">
-                            <button class="button is-primary" @onclick="BtnDecrypt">
-                                Decrypt
-                            </button>
-                        </div>                        
+                            <div class="control">
+                                <button class="button is-primary" @onclick="BtnDecrypt">
+                                    Decrypt
+                                </button>
+                            </div>
                         }
                     </div>
                 </div>
             </div>
         </div>
-        }
     </div>
 </div>
 @code{
     private string keyData;
     private string inputData;
     private string outputData;
-    public int ddlSelected { get; set; }
+    public int ddlSelected = 1;
     private string rdTypeValue = "1";
     private bool isHex;
 
@@ -149,9 +136,9 @@
         rdTypeValue = value;
     }
 
-    protected void DdlClicked(ChangeEventArgs countryEvent)
+    protected void DdlClicked(ChangeEventArgs args)
     {
-        ddlSelected = int.Parse(countryEvent.Value.ToString());
+        ddlSelected = int.Parse(args.Value.ToString());
     }
 
     public void BtnEncrypt()
@@ -186,7 +173,7 @@
                 outputData = ObonCryptography.TripleDes.Decrypt(keyData, inputData, isHex);
                 break;
             case 2:
-        outputData = ObonCryptography.AES.Decrypt(keyData, inputData);
+                outputData = ObonCryptography.AES.Decrypt(keyData, inputData);
                 break;
             case 3:
                 outputData = ObonCryptography.MD5Hash.Hash(inputData);
