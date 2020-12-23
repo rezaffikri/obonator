@@ -96,6 +96,7 @@
         }
         catch (Exception ex)
         {
+            _ = ex.ToString();
             outputData = "";
             toastService.ShowError("Gagal memvalidasi JSON", "FAIL");
         }
@@ -109,6 +110,7 @@
         }
         catch (Exception ex)
         {
+            _ = ex.ToString();
             outputData = "";
             toastService.ShowError("Gagal memvalidasi JSON", "FAIL");
         }
@@ -120,8 +122,9 @@
         {
             outputData = js.Escape(inputData);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _ = ex.ToString();
             outputData = "";
             toastService.ShowError("Key atau input salah", "FAIL");
         }
@@ -132,8 +135,9 @@
         {
             outputData = js.Unescape(inputData);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _ = ex.ToString();
             outputData = "";
             toastService.ShowError("Key atau input salah", "FAIL");
         }
