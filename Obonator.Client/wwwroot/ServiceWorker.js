@@ -25,8 +25,6 @@ const requiredFiles = [
 "/dev/css/obonbaselayout.css",
 "/dev/css/obonbulma.css",
 "/dev/css/oboncard.css",
-"/dev/css/oboncolumns.css",
-"/dev/css/oboncustom.css",
 "/dev/css/open-iconic/FONT-LICENSE",
 "/dev/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
 "/dev/css/open-iconic/font/fonts/open-iconic.eot",
