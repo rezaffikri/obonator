@@ -1,35 +1,33 @@
 ﻿<AuthorizeView>
-    <Authorized>
         <p class="obon-menu-label-header">
             Hello,  @context.User.Identity.Name
         </p>
         <hr>
-    </Authorized>
 </AuthorizeView>
 <AuthorizeView Roles="guest, admin">
-    <p class="obon-menu-label">
-        General
-    </p>
-    <ul class="obon-menu-list">
-        <li>
-            <NavLink class="nav-link" href="cryptography">
-                Cryptography
-            </NavLink>
-        </li>
-        <li>
-            <NavLink class="nav-link" href="jsoneviewer">
-                JSON Viewer
-            </NavLink>
-        </li>
-    </ul>
+        <p class="obon-menu-label">
+            General
+        </p>
+        <ul class="obon-menu-list">
+            <li>
+                <NavLink class="nav-link" href="cryptography">
+                    Cryptography
+                </NavLink>
+            </li>
+            <li>
+                <NavLink class="nav-link" href="jsoneviewer">
+                    JSON Viewer
+                </NavLink>
+            </li>
+        </ul>
 </AuthorizeView>
 <AuthorizeView>
-    <hr>
-    <ul class="obon-menu-list-header">
-        <li>
-            <NavLink class="nav-link" href="logout">
-                Logout
-            </NavLink>
-        </li>
-    </ul>
+        <hr>
+        <ul class="obon-menu-list-header">
+            <li>
+                <NavLink class="nav-link" href="logout">
+                    Logout
+                </NavLink>
+            </li>
+        </ul>
 </AuthorizeView>

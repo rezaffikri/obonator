@@ -3,13 +3,19 @@
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <NotAuthorized>
-                    <img src="/img/not_auth.jpg" />
+                    <img src="img/not_auth.gif" alt="You Shall Not Pass!!!" style="display:block; margin-left:auto; margin-right:auto; width:50%" />
+                    <h1 style="text-align:center; font-size:60px">403</h1>
+                    <h1 style="text-align:center; font-size:20px">Access Forbidden</h1>
+                    <h1 style="text-align:center; font-size:40px"><a href="/">Back</a></h1>
                 </NotAuthorized>
             </AuthorizeRouteView>
         </Found>
         <NotFound>
             <LayoutView Layout="@typeof(MainLayout)">
-                <p>Sorry, there's nothing at this address.</p>
+                <img src="img/not_found.gif" alt=".....Wait... What... Page Not Found?..." style="display:block; margin-left:auto; margin-right:auto; width:50%" />
+                <h1 style="text-align:center; font-size:60px">404</h1>
+                <h1 style="text-align:center; font-size:20px">Page Not Found</h1>
+                <h1 style="text-align:center; font-size:40px"><a href="/">Back</a></h1>
             </LayoutView>
         </NotFound>
     </Router>

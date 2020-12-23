@@ -5,7 +5,7 @@ const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
 const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
-const staticCacheName = 'blazor-cache-v9';
+const staticCacheName = 'blazor-cache-v10';
 const requiredFiles = [
 "/dev/404.html",
 "/dev/css/app.css",
@@ -38,7 +38,10 @@ const requiredFiles = [
 "/dev/img/icon-obon192.png",
 "/dev/img/icon-obon512.png",
 "/dev/img/logo.jpg",
+"/dev/img/not_auth.gif",
 "/dev/img/not_auth.jpg",
+"/dev/img/not_found.gif",
+"/dev/img/not_found.jpg",
 "/dev/img/splash-screen-cat-loading.gif",
 "/dev/index.html",
 "/dev/js/font-awesome.js",
