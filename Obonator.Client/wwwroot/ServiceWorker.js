@@ -5,7 +5,7 @@ const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
 const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
-const staticCacheName = 'blazor-cache-v6';
+const staticCacheName = 'blazor-cache-v8';
 const requiredFiles = [
 "/dev/404.html",
 "/dev/css/app.css",
@@ -23,7 +23,6 @@ const requiredFiles = [
 "/dev/css/minireset.css",
 "/dev/css/obon.css",
 "/dev/css/obonbaselayout.css",
-"/dev/css/obonbox.css",
 "/dev/css/obonbulma.css",
 "/dev/css/oboncard.css",
 "/dev/css/oboncolumns.css",
