@@ -5,7 +5,7 @@ const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
 const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
-const staticCacheName = 'blazor-cache-v9';
+const staticCacheName = 'blazor-cache-v10';
 const requiredFiles = [
 "/obonator/404.html",
 "/obonator/css/app.css",
@@ -38,7 +38,10 @@ const requiredFiles = [
 "/obonator/img/icon-obon192.png",
 "/obonator/img/icon-obon512.png",
 "/obonator/img/logo.jpg",
+"/obonator/img/not_auth.gif",
 "/obonator/img/not_auth.jpg",
+"/obonator/img/not_found.gif",
+"/obonator/img/not_found.jpg",
 "/obonator/img/splash-screen-cat-loading.gif",
 "/obonator/index.html",
 "/obonator/js/font-awesome.js",
