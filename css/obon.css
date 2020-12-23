@@ -209,3 +209,211 @@ a.obon-box-in-box:active {
 }
 
 /*-- End of Obon Box*/
+
+/*-- Start of H and Friend*/
+h1 {
+    display: block;
+    font-weight: bold;
+}
+
+    h1.is-normal {
+        font-size: 2em;
+    }
+
+    h1.is-big {
+        font-size: 4em;
+    }
+
+    h1.is-bigger {
+        font-size: 6em;
+    }
+
+h2 {
+    display: block;
+    font-weight: bold;
+}
+
+    h2.is-normal {
+        font-size: 1.75em;
+    }
+
+    h2.is-big {
+        font-size: 3.5em;
+    }
+
+    h2.is-bigger {
+        font-size: 5.25em;
+    }
+
+h3 {
+    display: block;
+    font-weight: bold;
+}
+
+    h3.is-normal {
+        font-size: 1.5em;
+    }
+
+    h3.is-big {
+        font-size: 3em;
+    }
+
+    h3.is-bigger {
+        font-size: 4.5em;
+    }
+
+h4 {
+    display: block;
+    font-weight: bold;
+}
+
+    h4.is-normal {
+        font-size: 1.25em;
+    }
+
+    h4.is-big {
+        font-size: 2.5em;
+    }
+
+    h4.is-bigger {
+        font-size: 3.75em;
+    }
+
+h5 {
+    display: block;
+    font-weight: bold;
+}
+
+    h5.is-normal {
+        font-size: 1em;
+    }
+
+    h5.is-big {
+        font-size: 2em;
+    }
+
+    h5.is-bigger {
+        font-size: 3em;
+    }
+
+h6 {
+    display: block;
+    font-weight: bold;
+}
+
+    h6.is-normal {
+        font-size: 0.75em;
+    }
+
+    h6.is-big {
+        font-size: 1.5em;
+    }
+
+    h6.is-bigger {
+        font-size: 2.25em;
+    }
+
+@media screen and (max-width: 768px) {
+    h1 {
+        display: block;
+        font-weight: bold;
+    }
+
+        h1.is-normal {
+            font-size: 2em;
+        }
+
+        h1.is-big {
+            font-size: 2.75em;
+        }
+
+        h1.is-bigger {
+            font-size: 3.5em;
+        }
+
+    h2 {
+        display: block;
+        font-weight: bold;
+    }
+
+        h2.is-normal {
+            font-size: 1.75em;
+        }
+
+        h2.is-big {
+            font-size: 2.5em;
+        }
+
+        h2.is-bigger {
+            font-size: 3.25em;
+        }
+
+    h3 {
+        display: block;
+        font-weight: bold;
+    }
+
+        h3.is-normal {
+            font-size: 1.5em;
+        }
+
+        h3.is-big {
+            font-size: 2.25em;
+        }
+
+        h3.is-bigger {
+            font-size: 3em;
+        }
+
+    h4 {
+        display: block;
+        font-weight: bold;
+    }
+
+        h4.is-normal {
+            font-size: 1.25em;
+        }
+
+        h4.is-big {
+            font-size: 2em;
+        }
+
+        h4.is-bigger {
+            font-size: 2.75em;
+        }
+
+    h5 {
+        display: block;
+        font-weight: bold;
+    }
+
+        h5.is-normal {
+            font-size: 1em;
+        }
+
+        h5.is-big {
+            font-size: 1.75em;
+        }
+
+        h5.is-bigger {
+            font-size: 2.5em;
+        }
+
+    h6 {
+        display: block;
+        font-weight: bold;
+    }
+
+        h6.is-normal {
+            font-size: 0.75em;
+        }
+
+        h6.is-big {
+            font-size: 1.5em;
+        }
+
+        h6.is-bigger {
+            font-size: 2em;
+        }
+}
+/*-- End of H and Friend*/

@@ -25,8 +25,6 @@ const requiredFiles = [
 "/obonator/css/obonbaselayout.css",
 "/obonator/css/obonbulma.css",
 "/obonator/css/oboncard.css",
-"/obonator/css/oboncolumns.css",
-"/obonator/css/oboncustom.css",
 "/obonator/css/open-iconic/FONT-LICENSE",
 "/obonator/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
 "/obonator/css/open-iconic/font/fonts/open-iconic.eot",
