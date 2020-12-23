@@ -23,7 +23,6 @@ const requiredFiles = [
 "/obonator/css/minireset.css",
 "/obonator/css/obon.css",
 "/obonator/css/obonbaselayout.css",
-"/obonator/css/obonbox.css",
 "/obonator/css/obonbulma.css",
 "/obonator/css/oboncard.css",
 "/obonator/css/oboncolumns.css",
