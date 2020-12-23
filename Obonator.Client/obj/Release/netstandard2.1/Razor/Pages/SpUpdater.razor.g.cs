@@ -116,7 +116,7 @@ using Obonator.Client;
 #nullable disable
 #nullable restore
 #line 21 "D:\Projects\rezaffikri\Obonator\Obonator.Client\_Imports.razor"
-using Obonator.Client.Services.Auth;
+using Obonator.Client.Services;
 
 #line default
 #line hidden

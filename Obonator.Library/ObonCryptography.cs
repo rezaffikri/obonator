@@ -10,6 +10,7 @@ namespace Obonator.Library
     {
         public class TripleDes
         {
+            //Regex isHex
             static readonly Regex r = new Regex(@"^[0-9A-F\r\n]+$");
             public static string Encrypt(string key, string input, bool outputHex)
             {
@@ -19,12 +20,12 @@ namespace Obonator.Library
                     byte[] keyArray;
                     byte[] hexData = null;
                     byte[] toEncryptArray;
-                    input = input.Trim().Replace("-", "");
-                    key = key.Trim().Replace("-", "");
+                    string inputHex = input.Trim().Replace("-", "");
+                    string keyHex = key.Trim().Replace("-", "");
 
-                    if (r.Match(input).Success)
+                    if (r.Match(inputHex).Success)
                     {
-                        hexData = HexStringToByteArray(input);
+                        hexData = HexStringToByteArray(inputHex);
                         toEncryptArray = hexData;
                     }
                     else
@@ -33,9 +34,9 @@ namespace Obonator.Library
                     }
 
                     TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
-                    if (r.Match(key.Trim()).Success)
+                    if (r.Match(keyHex.Trim()).Success)
                     {
-                        hexData = HexStringToByteArray(key);
+                        hexData = HexStringToByteArray(keyHex);
                         keyArray = hexData;
                         tdes.Padding = PaddingMode.None;
                     }
@@ -48,7 +49,6 @@ namespace Obonator.Library
                         tdes.Padding = PaddingMode.PKCS7;
                     }
 
-                    tdes.KeySize = 192;
                     tdes.Key = keyArray;
 
                     tdes.Mode = CipherMode.ECB;
@@ -134,13 +134,13 @@ namespace Obonator.Library
                 {
                     byte[] keyArray;
                     byte[] hexData = null;
-                    byte[] toEncryptArray;
-                    input = input.Trim().Replace("-", "");
-                    key = key.Trim().Replace("-", "");
+                    byte[] toEncryptArray;                  
+                    string inputHex = input.Trim().Replace("-", "");
+                    string keyHex = key.Trim().Replace("-", "");
 
-                    if (r.Match(input.Trim()).Success)
+                    if (r.Match(inputHex.Trim()).Success)
                     {
-                        hexData = HexStringToByteArray(input);
+                        hexData = HexStringToByteArray(inputHex);
                         toEncryptArray = hexData;
                     }
                     else
@@ -149,9 +149,9 @@ namespace Obonator.Library
                     }
 
                     TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
-                    if (r.Match(key.Trim()).Success)
+                    if (r.Match(keyHex.Trim()).Success)
                     {
-                        hexData = HexStringToByteArray(key);
+                        hexData = HexStringToByteArray(keyHex);
                         keyArray = hexData;
                         tdes.Padding = PaddingMode.None;
                     }

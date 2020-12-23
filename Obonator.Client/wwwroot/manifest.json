@@ -1,16 +1,16 @@
 {
   "short_name": "Obonator",
   "name": "Obonator.Client",
-  "start_url": "/obonator/",
+  "start_url": "/dev/",
   "display": "standalone",
   "icons": [
     {
-      "src":"/obonator/img/icon-obon192.png",
+      "src":"/dev/img/icon-obon192.png",
       "type":"image/png",
       "sizes":"192x192"
     },
     {
-      "src":"/obonator/img/icon-obon512.png",
+      "src":"/dev/img/icon-obon512.png",
       "type":"image/png",
       "sizes":"512x512"
     }

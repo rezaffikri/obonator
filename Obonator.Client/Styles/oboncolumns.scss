@@ -1,4 +1,4 @@
-﻿.obon-column {
+﻿.column {
     display: block;
     flex-basis: 0;
     flex-grow: 1;
@@ -6,8 +6,8 @@
     padding: 0.75rem;
 }
 
-.obon-columns {
-    &.is-mobile > .obon-column {
+.columns {
+    &.is-mobile > .column {
         &.is-narrow {
             flex: none;
         }
@@ -237,7 +237,7 @@
         margin-right: 0;
         margin-top: 0;
 
-        > .obon-column {
+        > .column {
             margin: 0;
             padding: 0 !important;
         }
@@ -268,7 +268,7 @@
         margin-left: calc(-1 * var(--columnGap));
         margin-right: calc(-1 * var(--columnGap));
 
-        .obon-column {
+        .column {
             padding-left: var(--columnGap);
             padding-right: var(--columnGap);
         }
@@ -312,7 +312,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .obon-column {
+    .column {
         &.is-narrow-mobile {
             flex: none;
         }
@@ -523,7 +523,7 @@
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-column {
+    .column {
         &.is-narrow, &.is-narrow-tablet {
             flex: none;
         }
@@ -734,7 +734,7 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-column {
+    .column {
         &.is-narrow-touch {
             flex: none;
         }
@@ -945,7 +945,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-column {
+    .column {
         &.is-narrow-desktop {
             flex: none;
         }
@@ -1156,7 +1156,7 @@
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-column {
+    .column {
         &.is-narrow-widescreen {
             flex: none;
         }
@@ -1367,7 +1367,7 @@
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-column {
+    .column {
         &.is-narrow-fullhd {
             flex: none;
         }
@@ -1578,499 +1578,499 @@
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns:not(.is-desktop) {
+    .columns:not(.is-desktop) {
         display: flex;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-desktop {
+    .columns.is-desktop {
         display: flex;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-0-mobile {
+    .columns.is-variable.is-0-mobile {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-0-tablet {
+    .columns.is-variable.is-0-tablet {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-0-tablet-only {
+    .columns.is-variable.is-0-tablet-only {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-0-touch {
+    .columns.is-variable.is-0-touch {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-0-desktop {
+    .columns.is-variable.is-0-desktop {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-0-desktop-only {
+    .columns.is-variable.is-0-desktop-only {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-0-widescreen {
+    .columns.is-variable.is-0-widescreen {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-0-widescreen-only {
+    .columns.is-variable.is-0-widescreen-only {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-0-fullhd {
+    .columns.is-variable.is-0-fullhd {
         --columnGap: 0rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-1-mobile {
+    .columns.is-variable.is-1-mobile {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-1-tablet {
+    .columns.is-variable.is-1-tablet {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-1-tablet-only {
+    .columns.is-variable.is-1-tablet-only {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-1-touch {
+    .columns.is-variable.is-1-touch {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-1-desktop {
+    .columns.is-variable.is-1-desktop {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-1-desktop-only {
+    .columns.is-variable.is-1-desktop-only {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-1-widescreen {
+    .columns.is-variable.is-1-widescreen {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-1-widescreen-only {
+    .columns.is-variable.is-1-widescreen-only {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-1-fullhd {
+    .columns.is-variable.is-1-fullhd {
         --columnGap: 0.25rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-2-mobile {
+    .columns.is-variable.is-2-mobile {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-2-tablet {
+    .columns.is-variable.is-2-tablet {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-2-tablet-only {
+    .columns.is-variable.is-2-tablet-only {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-2-touch {
+    .columns.is-variable.is-2-touch {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-2-desktop {
+    .columns.is-variable.is-2-desktop {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-2-desktop-only {
+    .columns.is-variable.is-2-desktop-only {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-2-widescreen {
+    .columns.is-variable.is-2-widescreen {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-2-widescreen-only {
+    .columns.is-variable.is-2-widescreen-only {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-2-fullhd {
+    .columns.is-variable.is-2-fullhd {
         --columnGap: 0.5rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-3-mobile {
+    .columns.is-variable.is-3-mobile {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-3-tablet {
+    .columns.is-variable.is-3-tablet {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-3-tablet-only {
+    .columns.is-variable.is-3-tablet-only {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-3-touch {
+    .columns.is-variable.is-3-touch {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-3-desktop {
+    .columns.is-variable.is-3-desktop {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-3-desktop-only {
+    .columns.is-variable.is-3-desktop-only {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-3-widescreen {
+    .columns.is-variable.is-3-widescreen {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-3-widescreen-only {
+    .columns.is-variable.is-3-widescreen-only {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-3-fullhd {
+    .columns.is-variable.is-3-fullhd {
         --columnGap: 0.75rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-4-mobile {
+    .columns.is-variable.is-4-mobile {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-4-tablet {
+    .columns.is-variable.is-4-tablet {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-4-tablet-only {
+    .columns.is-variable.is-4-tablet-only {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-4-touch {
+    .columns.is-variable.is-4-touch {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-4-desktop {
+    .columns.is-variable.is-4-desktop {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-4-desktop-only {
+    .columns.is-variable.is-4-desktop-only {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-4-widescreen {
+    .columns.is-variable.is-4-widescreen {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-4-widescreen-only {
+    .columns.is-variable.is-4-widescreen-only {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-4-fullhd {
+    .columns.is-variable.is-4-fullhd {
         --columnGap: 1rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-5-mobile {
+    .columns.is-variable.is-5-mobile {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-5-tablet {
+    .columns.is-variable.is-5-tablet {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-5-tablet-only {
+    .columns.is-variable.is-5-tablet-only {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-5-touch {
+    .columns.is-variable.is-5-touch {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-5-desktop {
+    .columns.is-variable.is-5-desktop {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-5-desktop-only {
+    .columns.is-variable.is-5-desktop-only {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-5-widescreen {
+    .columns.is-variable.is-5-widescreen {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-5-widescreen-only {
+    .columns.is-variable.is-5-widescreen-only {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-5-fullhd {
+    .columns.is-variable.is-5-fullhd {
         --columnGap: 1.25rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-6-mobile {
+    .columns.is-variable.is-6-mobile {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-6-tablet {
+    .columns.is-variable.is-6-tablet {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-6-tablet-only {
+    .columns.is-variable.is-6-tablet-only {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-6-touch {
+    .columns.is-variable.is-6-touch {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-6-desktop {
+    .columns.is-variable.is-6-desktop {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-6-desktop-only {
+    .columns.is-variable.is-6-desktop-only {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-6-widescreen {
+    .columns.is-variable.is-6-widescreen {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-6-widescreen-only {
+    .columns.is-variable.is-6-widescreen-only {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-6-fullhd {
+    .columns.is-variable.is-6-fullhd {
         --columnGap: 1.5rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-7-mobile {
+    .columns.is-variable.is-7-mobile {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-7-tablet {
+    .columns.is-variable.is-7-tablet {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-7-tablet-only {
+    .columns.is-variable.is-7-tablet-only {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-7-touch {
+    .columns.is-variable.is-7-touch {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-7-desktop {
+    .columns.is-variable.is-7-desktop {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-7-desktop-only {
+    .columns.is-variable.is-7-desktop-only {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-7-widescreen {
+    .columns.is-variable.is-7-widescreen {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-7-widescreen-only {
+    .columns.is-variable.is-7-widescreen-only {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-7-fullhd {
+    .columns.is-variable.is-7-fullhd {
         --columnGap: 1.75rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .obon-columns.is-variable.is-8-mobile {
+    .columns.is-variable.is-8-mobile {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (min-width: 769px), print {
-    .obon-columns.is-variable.is-8-tablet {
+    .columns.is-variable.is-8-tablet {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-    .obon-columns.is-variable.is-8-tablet-only {
+    .columns.is-variable.is-8-tablet-only {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .obon-columns.is-variable.is-8-touch {
+    .columns.is-variable.is-8-touch {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .obon-columns.is-variable.is-8-desktop {
+    .columns.is-variable.is-8-desktop {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1215px) {
-    .obon-columns.is-variable.is-8-desktop-only {
+    .columns.is-variable.is-8-desktop-only {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (min-width: 1216px) {
-    .obon-columns.is-variable.is-8-widescreen {
+    .columns.is-variable.is-8-widescreen {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (min-width: 1216px) and (max-width: 1407px) {
-    .obon-columns.is-variable.is-8-widescreen-only {
+    .columns.is-variable.is-8-widescreen-only {
         --columnGap: 2rem;
     }
 }
 
 @media screen and (min-width: 1408px) {
-    .obon-columns.is-variable.is-8-fullhd {
+    .columns.is-variable.is-8-fullhd {
         --columnGap: 2rem;
     }
 }

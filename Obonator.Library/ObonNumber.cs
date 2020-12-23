@@ -1,21 +1,38 @@
 using System;
 using System.Text;
+using System.Threading;
 
 namespace Obonator.Library
 {
     public class ObonNumber
     {
-        public static string GenerateRandomNumber(int length)
+        private static int _seedCount = 0;
+        private static ThreadLocal<Random> _tlRng = new ThreadLocal<Random>(() => new Random(GenerateSeed()));
+
+        private static int GenerateSeed()
         {
-            Random mRandom = new Random();
-            char[] chArray = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            StringBuilder str = new StringBuilder();
-            for (int i = 1; i <= length; i++)
-            {
-                int index = mRandom.Next(10);
-                str.Append(Convert.ToString(chArray[index]));
-            }
-            return Convert.ToString(str);
+            // note the usage of Interlocked, remember that in a shared context we can't just "_seedCount++"
+            return (int)((DateTime.Now.Ticks << 4) + Interlocked.Increment(ref _seedCount));
+        }
+
+
+        /// <summary>
+        /// Get one random number between 0-9999
+        /// </summary>
+        /// <returns></returns>
+        public static long GenerateRandomNumber()
+        {
+            return _tlRng.Value.Next(9999);
+        }
+
+        /// <summary>
+        /// Get random number between 0-(lenght)
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static long GenerateRandomNumber(int length)
+        {
+            return _tlRng.Value.Next(length);
         }
 
         public static int HexToInt(string hex)
