@@ -19,8 +19,19 @@ jobs:
         dotnet-version: 3.1.101
     - name: Install dependencies
       run: dotnet restore
+    
     - name: Publish with dotnet
       run: dotnet publish --configuration Release --output build
+    
+    - name: Change base-tag in index.html from / to Obonator
+      run: sed -i 's/<base href="\/" \/>/<base href="\/Obonator\/" \/>/g' release/wwwroot/index.html
+    
+    - name: copy index.html to 404.html
+      run: cp release/wwwroot/index.html release/wwwroot/404.html
+    
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
+    
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
