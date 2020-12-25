@@ -9,14 +9,10 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <ServiceWorkerBaseUrl>dev</ServiceWorkerBaseUrl>
     <ManifestBaseUrl>dev</ManifestBaseUrl>
-    <ManifestShortName>Obonator</ManifestShortName>
-    <ManifestName>Obonator</ManifestName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <ServiceWorkerBaseUrl>obonator</ServiceWorkerBaseUrl>
     <ManifestBaseUrl>obonator</ManifestBaseUrl>
-    <ManifestShortName>Obonator</ManifestShortName>
-    <ManifestName>Obonator</ManifestName>
   </PropertyGroup>
   <Target Name="ObonPWA" BeforeTargets="CreatePWA">
     <PropertyGroup>
