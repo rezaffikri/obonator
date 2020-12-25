@@ -10,7 +10,7 @@ using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Obonator.Client.Helper;
 
-namespace Obonator.Client
+namespace Obonator.Client.Services.Auth
 {
     public class ApiAuthenticationStateProvider : AuthenticationStateProvider
     {

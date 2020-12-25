@@ -1,8 +1,0 @@
-D:\Projects\rezaffikri\Obonator\Obonator.Library\bin\Release\netstandard2.0\Obonator.Library.deps.json
-D:\Projects\rezaffikri\Obonator\Obonator.Library\bin\Release\netstandard2.0\Obonator.Library.dll
-D:\Projects\rezaffikri\Obonator\Obonator.Library\bin\Release\netstandard2.0\Obonator.Library.pdb
-D:\Projects\rezaffikri\Obonator\Obonator.Library\obj\Release\netstandard2.0\Obonator.Library.AssemblyInfoInputs.cache
-D:\Projects\rezaffikri\Obonator\Obonator.Library\obj\Release\netstandard2.0\Obonator.Library.AssemblyInfo.cs
-D:\Projects\rezaffikri\Obonator\Obonator.Library\obj\Release\netstandard2.0\Obonator.Library.csproj.CoreCompileInputs.cache
-D:\Projects\rezaffikri\Obonator\Obonator.Library\obj\Release\netstandard2.0\Obonator.Library.dll
-D:\Projects\rezaffikri\Obonator\Obonator.Library\obj\Release\netstandard2.0\Obonator.Library.pdb
