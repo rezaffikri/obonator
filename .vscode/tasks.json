@@ -7,8 +7,8 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}",
-                "/property:GenerateFullPaths=false",
+                "${workspaceFolder}/Obonator.Client/Obonator.Client.csproj",
+                "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
@@ -19,8 +19,8 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}",
-                "/property:GenerateFullPaths=false",
+                "${workspaceFolder}/Obonator.Client/Obonator.Client.csproj",
+                "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
@@ -32,8 +32,8 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}",
-                "/property:GenerateFullPaths=false",
+                "${workspaceFolder}/Obonator.Client/Obonator.Client.csproj",
+                "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
