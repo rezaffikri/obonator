@@ -41,7 +41,11 @@
     <PackageReference Include="BlazorPWA.MSBuild" Version="1.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Obonator.Library\Obonator.Library.csproj" />
     <ProjectReference Include="..\Obonator.Shared\Obonator.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Obonator.Library">
+      <HintPath>..\..\Obonator.Library\Obonator.Library\bin\Release\netstandard2.0\Obonator.Library.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
