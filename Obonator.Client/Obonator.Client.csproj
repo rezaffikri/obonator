@@ -9,10 +9,14 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <ServiceWorkerBaseUrl>dev</ServiceWorkerBaseUrl>
     <ManifestBaseUrl>dev</ManifestBaseUrl>
+    <ManifestShortName>Obonator</ManifestShortName>
+    <ManifestName>Obonator</ManifestName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <ServiceWorkerBaseUrl>obonator</ServiceWorkerBaseUrl>
     <ManifestBaseUrl>obonator</ManifestBaseUrl>
+    <ManifestShortName>Obonator</ManifestShortName>
+    <ManifestName>Obonator</ManifestName>
   </PropertyGroup>
   <Target Name="ObonPWA" BeforeTargets="CreatePWA">
     <PropertyGroup>
@@ -36,13 +40,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.2.0-preview1.20073.1"/>
     <PackageReference Include="BlazorPWA.MSBuild" Version="1.0.2"/>
     <PackageReference Include="System.Text.Json" Version="5.0.0"/>
+    <PackageReference Include="ObonCorp.Obonator.Library" Version="1.0.0"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Obonator.Shared\Obonator.Shared.csproj"/>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Obonator.Library">
-      <HintPath>..\..\Obonator.Library\Obonator.Library\bin\Release\netstandard2.0\Obonator.Library.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>
