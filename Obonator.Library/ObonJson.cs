@@ -1,12 +1,12 @@
-using System;
-using System.Text.Json;
+﻿using System;
 using System.Text.Encodings.Web;
+using System.Text.Json;
 
-namespace Obonator.Client.Services.Json
+namespace Obonator.Library
 {
-    public class JsonService
+    public class ObonJson
     {
-        public string JsonValidator(string json)
+        public static string JsonValidator(string json)
         {
             string errorMsg = "";
             try
@@ -33,9 +33,9 @@ namespace Obonator.Client.Services.Json
                     msg = msg.Substring(0, lengthMsg).Trim();
                 }
                 string error;
-                if (json.Split("\n").Length > 1)
+                if (json.Split('\n').Length > 1)
                 {
-                    error = json.Split("\n")[line];
+                    error = json.Split('\n')[line];
                 }
                 else
                 {
@@ -63,8 +63,7 @@ namespace Obonator.Client.Services.Json
             }
             return errorMsg;
         }
-
-        public string PrettyJson(string json)
+        public static string PrettyJson(string json)
         {
             string error = JsonValidator(json);
             if (!string.IsNullOrEmpty(error))
@@ -81,8 +80,7 @@ namespace Obonator.Client.Services.Json
 
             return JsonSerializer.Serialize(jsonElement, options);
         }
-
-        public string Escape(string json)
+        public static string Escape(string json)
         {
             string error = JsonValidator(json);
             if (!string.IsNullOrEmpty(error))
@@ -94,7 +92,7 @@ namespace Obonator.Client.Services.Json
             jsonSerializerOption.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
             return JsonSerializer.Serialize(json, jsonSerializerOption);
         }
-        public string Unescape(string json)
+        public static string Unescape(string json)
         {
             string error = JsonValidator(json);
             if (!string.IsNullOrEmpty(error))

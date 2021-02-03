@@ -4,19 +4,19 @@
 
 <AuthorizeView>
     <Authorized>
-        <nav class="obon-navbar is-fixed-bottom" role="navigation" aria-label="main navigation">
-            <div class="obon-navbar-brand">
-                <a class="obon-navbar-item brand-text" href="">
+        <nav class="navbar is-fixed-bottom" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item brand-text" href="">
                     OBONATOR
                 </a>
-                <div class="obon-navbar-burger @NavMenuCssClass" aria-label="menu" aria-expanded="false" @onclick="ToggleNavMenu">
+                <div class="navbar-burger @NavMenuCssClass" aria-label="menu" aria-expanded="false" @onclick="ToggleNavMenu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
             </div>
         </nav>
-        <div class="obon-main">
+        <div class="main">
             <BlazoredToasts Position="ToastPosition.TopRight"
                             Timeout="3"
                             IconType="IconType.FontAwesome"
@@ -39,7 +39,7 @@
         </div>
     </Authorized>
     <NotAuthorized>
-        <div class="obon-main">
+        <div class="main">
             <div class="obon-section">
                 @Body
             </div>

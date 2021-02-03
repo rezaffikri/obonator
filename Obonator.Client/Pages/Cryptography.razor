@@ -1,7 +1,7 @@
 ﻿@page "/cryptography"
 
-@attribute [Authorize(Roles = "admin, guest")]
-<nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
+@attribute [Authorize(Roles = "guest, admin")]
+<nav class="breadcrumb is-small" aria-label="breadcrumbs">
     <ul>
         <li>
             <a href="#">
@@ -13,13 +13,13 @@
         </li>
     </ul>
 </nav>
-<div class="obon-box">
-    <div class="obon-box-header">
+<div class="box">
+    <div class="box-header">
         <h1 class="subtitle has-text-centered">
             Cryptography
         </h1>
     </div>
-    <div class="obon-box-body">
+    <div class="box-body">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
                 <label class="label">Type</label>
@@ -28,28 +28,28 @@
                 <div class="field">
                     <div class="control">
                         <div class="select">
-                            <select @onchange="DdlClicked">
+                            <select @bind="ddlSelected">
                                 <option value="1">TripleDes</option>
                                 <option value="2">AES</option>
                                 <option value="3">MD5</option>
-                                <option value="4">Octopus Password</option>
+                                <option value="4">Secret TripleDes</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        @if (ddlSelected != 3 && ddlSelected != 4)
+        @if (ddlSelected == 1 || ddlSelected == 2)
         {
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Key</label>
+                    <label class="label">Secret Key</label>
                 </div>
                 <div class="field-body">
                     <div class="field">
-                        <p class="control">
-                            <input class="input" type="text" @bind="keyData" placeholder="Key">
-                        </p>
+                        <div class="control">
+                            <input type="text" class="input" @bind="keyData" placeholder="Enter Secret Key" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,17 +59,22 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea" @bind="inputData" placeholder="Input"></textarea>
+                        <input type="text" class="input" @bind="inputData" placeholder="Enter text to be Encrypted or Decrypted" />
                     </div>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
-            <div class="field-label is-normal"><label class="label">Output</label></div>
+            <div class="field-label is-normal">
+                <label class="label">Output</label>
+            </div>
             <div class="field-body">
-                <div class="field">
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input type="text" class="input" @bind="outputData" placeholder="Result goes here" />
+                    </div>
                     <div class="control">
-                        <textarea class="textarea" @bind="outputData" placeholder="Output"></textarea>
+                        <ButtonCopyToClipboard CopyText="@outputData" />
                     </div>
                 </div>
             </div>
@@ -81,10 +86,18 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <RadioGroup TValue="string" Name="colors" CheckedValue="@rdTypeValue" CheckedValueChanged="@OnCheckedValueChanged">
-                                <Radio TValue="string" Value="@("1")">Plain</Radio>
-                                <Radio TValue="string" Value="@("2")">Hex</Radio>
-                            </RadioGroup>
+                            <label>
+                                <input name="plain" type="radio"
+                                       checked="@(rdTypeValue == 1)"
+                                       @onchange="@(() => { rdTypeValue = 1; })" />
+                                Plain
+                            </label>
+                            <label>
+                                <input name="plain" type="radio"
+                                       checked="@(rdTypeValue == 2)"
+                                       @onchange="@(() => { rdTypeValue = 2; })" />
+                                Hex
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -115,16 +128,16 @@
     </div>
 </div>
 @code{
-    private string keyData;
-    private string inputData;
-    private string outputData;
-    public int ddlSelected = 1;
-    private string rdTypeValue = "1";
-    private bool isHex;
+    private string keyData { get; set; }
+    private string inputData { get; set; }
+    private string outputData { get; set; }
+    private int ddlSelected = 1;
+    protected int rdTypeValue { get; set; } = 1;
+    private bool isHex { get; set; }
 
-    void OnCheckedValueChanged(string value)
+    void CheckIsHex(int value)
     {
-        if (value.Equals("1"))
+        if (value == 1)
         {
 
             isHex = false;
@@ -133,7 +146,6 @@
         {
             isHex = true;
         }
-        rdTypeValue = value;
     }
 
     protected void DdlClicked(ChangeEventArgs args)
@@ -143,6 +155,7 @@
 
     public void BtnEncrypt()
     {
+        CheckIsHex(rdTypeValue);
         switch (ddlSelected)
         {
             case 1:
@@ -161,12 +174,13 @@
 
         if (string.IsNullOrEmpty(outputData))
         {
-            toastService.ShowError("Key atau input salah", "FAIL");
+            _Toast.ShowError("Key atau input salah");
         }
     }
 
     public void BtnDecrypt()
     {
+        CheckIsHex(rdTypeValue);
         switch (ddlSelected)
         {
             case 1:
@@ -183,9 +197,8 @@
                 break;
         }
         if (string.IsNullOrEmpty(outputData))
-        { 
-            toastService.ShowError("Key atau input salah", "FAIL");
+        {
+            _Toast.ShowError("Key atau input salah");
         }
     }
 }
-

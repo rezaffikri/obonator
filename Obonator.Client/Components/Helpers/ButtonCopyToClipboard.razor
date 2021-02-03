@@ -1,0 +1,23 @@
+﻿@inject IJSRuntime JSRuntime
+
+<button type="button" class="button is-info @AddCss" @onclick="CopyTextToClipboard">
+    Copy
+</button>
+
+@code {
+    [Parameter] public string AddCss { get; set; }
+    [Parameter] public string CopyText { get; set; }
+
+    private async Task CopyTextToClipboard()
+    {
+        var error = await JSRuntime.InvokeAsync<string>("clipboardTextCopy.copyText", CopyText);
+        if (string.IsNullOrEmpty(error))
+        {
+            _Toast.ShowSuccess("Copied to clipboard!");
+        }
+        else
+        {
+            _Toast.ShowError(error);
+        }
+    }
+}

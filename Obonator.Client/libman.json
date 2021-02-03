@@ -4,7 +4,7 @@
   "libraries": [
     {
       "library": "bulma@0.9.1",
-      "destination": "wwwroot/css/bulma/"
+      "destination": "wwwroot/lib/bulma/"
     }
-  ] 
+  ]
 }

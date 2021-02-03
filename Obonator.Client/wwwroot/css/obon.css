@@ -5,16 +5,12 @@
     background: #ECF0F3;
 }
 
-.form-control.invalid {
-    border-color: #dc3545;
-}
-
-.obon-main-splash-screen {
+.main-splash-screen {
     display: flex;
     flex-direction: column;
 }
 
-.obon-section-splash-screen {
+.section-splash-screen {
     text-align: center;
     height: 100vh;
     display: flex;
@@ -28,7 +24,7 @@ hr {
     margin: 1rem 0;
 }
 
-.obon-splash-screen-top {
+.splash-screen-top {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     background: rgb(75, 31, 9);
@@ -38,40 +34,27 @@ hr {
     padding: 5px;
 }
 
-.obon-splash-screen-bottom {
+.splash-screen-bottom {
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
 
 @media screen and (max-width: 768px) {
-    .obon-section-splash-screen {
+    .section-splash-screen {
         margin: 1rem;
     }
 }
 
-.hero {
-    margin-bottom: 2px;
-    padding: 0.50rem;
+.valid.modified:not([type=checkbox]) {
+    border-color: #52e430;
 }
 
-    .hero.is-full {
-        border-radius: 6px;
-    }
-
-    .hero.is-top {
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-    }
-
-    .hero.is-bottom {
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-    }
-
-/*-- End of Bulma Custom CSS*/
+.invalid {
+    border-color: #dc3545;
+}
 
 .validation-message {
-    color: #dc3545;
+    color: red;
 }
 
 #blazor-error-ui {
@@ -92,6 +75,7 @@ hr {
         right: 0.75rem;
         top: 0.5rem;
     }
+
 
 .install-prompt {
     background-color: #54595f;
@@ -115,305 +99,175 @@ hr {
         width: 4em;
     }
 
-
-/*-- Start of Obon Box*/
-.obon-box {
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.obon-menu {
+    font-size: 1rem;
+    background: #021120;
+    background: -webkit-gradient(linear, left bottom, left top, from(#082949), color-stop(50%, #061f37), to(#021120));
+    background: linear-gradient(0deg, #082949 0%, #061f37 50%, #021120 100%);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 5px 0px 5px 0px;
+    box-shadow: rgba(0, 0, 0, 0.5) 5px 0px 5px 0px;
 }
 
-    .obon-box .title {
-        color: aquamarine;
+    .obon-menu.is-small {
+        font-size: 0.75rem;
     }
 
-    .obon-box .subtitle {
-        color: aquamarine;
+    .obon-menu.is-medium {
+        font-size: 1.25rem;
     }
 
-        .obon-box .subtitle a:not(.button), .obon-box .subtitle strong {
-            color: aquamarine;
-        }
-
-    .obon-box .is-color {
-        color: aquamarine;
+    .obon-menu.is-large {
+        font-size: 1.5rem;
     }
 
-.obon-box-box {
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
-    color: #4a4a4a;
-    display: block;
-    padding: 1.25rem;
+    .obon-menu.is-side {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        right: 0;
+        overflow-x: hidden;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        padding-top: 35%;
+    }
+
+    .obon-menu.is-active {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+        width: 300px;
+    }
+
+    .obon-menu.has-navbar-fixed-top {
+        padding-top: 3.25rem;
+    }
+
+    .obon-menu.has-navbar-fixed-bottom {
+        padding-bottom: 4.25rem;
+    }
+
+.obon-menu-label {
+    color: aquamarine;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
-.obon-box-header {
-    background: #061f37;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding: 0.5em;
+    .obon-menu-label:not(:first-child) {
+        margin-top: 1em;
+    }
+
+    .obon-menu-label:not(:last-child) {
+        margin-bottom: 1em;
+    }
+
+.obon-menu-list {
+    line-height: 1.25;
 }
 
-.obon-box-body {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    flex-grow: 1;
-    flex-shrink: 0;
-    padding: 1.25rem;
-    margin-top: 3px;
-    background-color: white;
-}
-
-.obon-box-in-box {
-    background-color: #f0f0f0;
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 3px rgba(10, 10, 10, 0.02);
-    color: black;
-    display: block;
-    padding: 1.25rem;
-}
-
-    .obon-box-in-box ul {
+    .obon-menu-list a {
+        border-radius: 2px;
+        color: whitesmoke;
         display: block;
-        list-style-type: disc;
-        padding-left: 40px;
+        padding: 0.5em 0.75em;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
     }
 
-    .obon-box-in-box ol {
+        .obon-menu-list a:hover {
+            background-color: whitesmoke;
+            color: #061f37;
+        }
+
+        .obon-menu-list a.active {
+            background-color: #3273dc;
+            color: #fff;
+        }
+
+    .obon-menu-list li ul {
+        border-left: 1px solid #dbdbdb;
+        margin: 0.75em;
+        padding-left: 0.75em;
+    }
+
+.obon-menu-label-header {
+    color: violet;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+    .obon-menu-label-header:not(:first-child) {
+        margin-top: 0.5em;
+    }
+
+    .obon-menu-label-header:not(:last-child) {
+        margin-bottom: 0.5em;
+    }
+
+.obon-menu-list-header {
+    line-height: 1.25;
+}
+
+    .obon-menu-list-header a {
+        border-radius: 2px;
+        color: violet;
         display: block;
-        list-style-type: decimal;
-        padding-left: 40px;
+        padding: 0.5em 0.75em 0.5em 0;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
     }
 
-    .obon-box-in-box li {
-        display: list-item;
+        .obon-menu-list-header a:hover {
+            background-color: whitesmoke;
+            color: #363636;
+        }
+
+        .obon-menu-list-header a.active {
+            background-color: violet;
+            color: #fff;
+        }
+
+    .obon-menu-list-header li ul {
+        border-left: 1px solid #dbdbdb;
+        margin: 0.75em;
+        padding-left: 0.75em;
     }
 
-a.obon-box-in-box:hover, a.obon-box:focus {
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px #3273dc;
+@media screen and (min-width: 769px) {
+    .obon-menu.is-side {
+        height: 100vh;
+        position: -webkit-sticky;
+        position: sticky;
+        z-index: 29;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        overflow-x: hidden;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        padding-top: 1rem;
+    }
 }
 
-a.obon-box-in-box:active {
-    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #3273dc;
+.obon-section {
+    margin: 1.5rem;
+    flex: 1;
 }
 
-a.obon-box-in-box:hover, a.box:focus {
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px #3273dc;
+    .obon-section.has-navbar-fixed-top {
+        padding-top: 3.25rem;
+    }
+
+    .obon-section.has-navbar-fixed-bottom {
+        padding-bottom: 3.25rem;
+    }
+
+@media screen and (min-width: 769px) {
+    .obon-section {
+        position: sticky;
+        top: 0;
+    }
 }
-
-a.obon-box-in-box:active {
-    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #3273dc;
-}
-
-/*-- End of Obon Box*/
-
-/*-- Start of H and Friend*/
-h1 {
-    display: block;
-    font-weight: bold;
-}
-
-    h1.is-normal {
-        font-size: 2em;
-    }
-
-    h1.is-big {
-        font-size: 4em;
-    }
-
-    h1.is-bigger {
-        font-size: 6em;
-    }
-
-h2 {
-    display: block;
-    font-weight: bold;
-}
-
-    h2.is-normal {
-        font-size: 1.75em;
-    }
-
-    h2.is-big {
-        font-size: 3.5em;
-    }
-
-    h2.is-bigger {
-        font-size: 5.25em;
-    }
-
-h3 {
-    display: block;
-    font-weight: bold;
-}
-
-    h3.is-normal {
-        font-size: 1.5em;
-    }
-
-    h3.is-big {
-        font-size: 3em;
-    }
-
-    h3.is-bigger {
-        font-size: 4.5em;
-    }
-
-h4 {
-    display: block;
-    font-weight: bold;
-}
-
-    h4.is-normal {
-        font-size: 1.25em;
-    }
-
-    h4.is-big {
-        font-size: 2.5em;
-    }
-
-    h4.is-bigger {
-        font-size: 3.75em;
-    }
-
-h5 {
-    display: block;
-    font-weight: bold;
-}
-
-    h5.is-normal {
-        font-size: 1em;
-    }
-
-    h5.is-big {
-        font-size: 2em;
-    }
-
-    h5.is-bigger {
-        font-size: 3em;
-    }
-
-h6 {
-    display: block;
-    font-weight: bold;
-}
-
-    h6.is-normal {
-        font-size: 0.75em;
-    }
-
-    h6.is-big {
-        font-size: 1.5em;
-    }
-
-    h6.is-bigger {
-        font-size: 2.25em;
-    }
-
-@media screen and (max-width: 768px) {
-    h1 {
-        display: block;
-        font-weight: bold;
-    }
-
-        h1.is-normal {
-            font-size: 2em;
-        }
-
-        h1.is-big {
-            font-size: 2.75em;
-        }
-
-        h1.is-bigger {
-            font-size: 3.5em;
-        }
-
-    h2 {
-        display: block;
-        font-weight: bold;
-    }
-
-        h2.is-normal {
-            font-size: 1.75em;
-        }
-
-        h2.is-big {
-            font-size: 2.5em;
-        }
-
-        h2.is-bigger {
-            font-size: 3.25em;
-        }
-
-    h3 {
-        display: block;
-        font-weight: bold;
-    }
-
-        h3.is-normal {
-            font-size: 1.5em;
-        }
-
-        h3.is-big {
-            font-size: 2.25em;
-        }
-
-        h3.is-bigger {
-            font-size: 3em;
-        }
-
-    h4 {
-        display: block;
-        font-weight: bold;
-    }
-
-        h4.is-normal {
-            font-size: 1.25em;
-        }
-
-        h4.is-big {
-            font-size: 2em;
-        }
-
-        h4.is-bigger {
-            font-size: 2.75em;
-        }
-
-    h5 {
-        display: block;
-        font-weight: bold;
-    }
-
-        h5.is-normal {
-            font-size: 1em;
-        }
-
-        h5.is-big {
-            font-size: 1.75em;
-        }
-
-        h5.is-bigger {
-            font-size: 2.5em;
-        }
-
-    h6 {
-        display: block;
-        font-weight: bold;
-    }
-
-        h6.is-normal {
-            font-size: 0.75em;
-        }
-
-        h6.is-big {
-            font-size: 1.5em;
-        }
-
-        h6.is-bigger {
-            font-size: 2em;
-        }
-}
-/*-- End of H and Friend*/

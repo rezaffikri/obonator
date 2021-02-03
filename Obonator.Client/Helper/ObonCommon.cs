@@ -13,19 +13,20 @@ namespace Obonator.Client.Helper
     {
         public static class AppConstants
         {
-        #if DEBUG
+#if DEBUG
             public const bool IS_DEBUG = true;
-        #else
+#else
             public const bool IS_DEBUG = false;
-        #endif
+#endif
         }
 
         public class AuthLocal
         {
             public static string CheckLogin(string username, string password)
             {
+                string hashPassword = Obonator.Library.ObonCryptography.MD5Hash.Hash(username+password);
                 string role = "";
-                if (username.Trim().ToLower().Equals("admin") && password.Trim().Equals("Passobon1!"))
+                if (hashPassword.Equals("124e6da995fefd5c31f8ef90366fb55c"))
                 {
                     role = "admin";
                 }
@@ -35,7 +36,7 @@ namespace Obonator.Client.Helper
             public static string CheckLogin(string username)
             {
                 string role = "";
-                if (username.Trim().ToLower().Equals("admin"))
+                if (username.Trim().ToLower().Equals("obon"))
                 {
                     role = "admin";
                 }

@@ -4,15 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Obonator adalah si obon.">
+    <meta name="description" content="Obonator">
     <title>Obonator</title>
 
     <base href="/" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="img/logo.jpg">
 
-    <!-- Font Awesome Version 4.7.0-->
-    <script src="js/font-awesome.js"></script>
+    <!-- Font Awesome Version -->
     <link rel="stylesheet" href="css/font-open-sans.css">
 
     <!-- Blazorize -->
@@ -22,15 +21,11 @@
     <script src="_content/Blazorise.Bulma/blazorise.bulma.js"></script>
 
     <!-- Bulma -->
-    <link rel="stylesheet" type="text/css" href="css/bulma/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/bulma/css/bulma.min.css">
 
     <!-- Obon -->
-    <link rel="stylesheet" type="text/css" href="css/obonbulma.css">
-    <link rel="stylesheet" type="text/css" href="css/obonbaselayout.css">
-    <link rel="stylesheet" type="text/css" href="css/oboncard.css">
-
-    <!-- Obonator Base -->
     <link rel="stylesheet" type="text/css" href="css/obon.css">
+    <link rel="stylesheet" type="text/css" href="css/bulmacustom.css">
 
     <!-- Blazored Toast -->
     <link href="_content/Blazored.Toast/blazored-toast.min.css" rel="stylesheet" />
@@ -41,12 +36,12 @@
 </head>
 <body>
     <app>
-        <div class="obon-main-splash-screen">
-            <div class="obon-section-splash-screen">
-                <div class="obon-splash-screen-top">
+        <div class="main-splash-screen">
+            <div class="section-splash-screen">
+                <div class="splash-screen-top">
                     <p>Please be patient while the Obonator app loads</p>
                 </div>
-                <img class="obon-splash-screen-bottom" src="img/splash-screen-cat-loading.gif" />
+                <img class="splash-screen-bottom" src="img/splash-screen-cat-loading.gif" />
             </div>
         </div>
     </app>
@@ -63,10 +58,10 @@
         // When the single page app is loaded further down in this file,
         // the correct url will be waiting in the browser's history for
         // the single page app to route accordingly.
-        (function(l) {
+        (function (l) {
             if (l.search) {
                 var q = {};
-                l.search.slice(1).split('&').forEach(function(v) {
+                l.search.slice(1).split('&').forEach(function (v) {
                     var a = v.split('=');
                     q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
                 });
@@ -86,6 +81,12 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+
+    <!-- Font Awesome Version 4.7.0-->
+    <script src="js/font-awesome.js"></script>
+
+    <!-- Obon -->
+    <script src="js/obon.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 @page "/jsoneviewer"
 
 @attribute [Authorize(Roles = "admin, guest")]
-<nav class="obon-breadcrumb is-small" aria-label="breadcrumbs">
+<nav class="breadcrumb is-small" aria-label="breadcrumbs">
     <ul>
         <li>
             <a href="#">
@@ -17,52 +17,68 @@
     </ul>
 </nav>
 
-<div class="obon-box">
-    <div class="obon-box-header">
+<div class="box">
+    <div class="box-header">
         <h1 class="subtitle has-text-centered">
-            JSON Viewer
+            Json Viewer
         </h1>
     </div>
-    <div class="obon-box-body">
-        <div class="field is-horizontal">
-            <div class="field-body">
+    <div class="box-body">
+        <div class="columns">
+            <div class="column">
                 <div class="field">
                     <label class="label">Input</label>
                     <div class="control">
-                        <textarea class="textarea" rows="17" @bind="inputData" placeholder="Input"></textarea>
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label">Output</label>
-                    <div class="control">
-                        <textarea class="textarea" rows="17" @bind="outputData" placeholder="Output"></textarea>
+                        <textarea class="textarea" rows="19" @bind="inputData" placeholder="Enter Json"></textarea>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-body">
-                <div class="field is-grouped is-grouped-multiline">
+            <div class="column is-2 has-text-centered">
+                <div class="field">
+                    <div class="field-label is-normal"><!----></div>
+                </div>
+                <div class="field">
+                    <div class="field-label is-normal"><!----></div>
+                </div>
+                <div class="field">
                     <div class="control">
-                        <button class="button is-primary" @onclick="Validator">
+                        <button class="button is-primary is-fullwidth" @onclick="Validator">
                             Validator
                         </button>
                     </div>
+                </div>
+                <div class="field">
                     <div class="control">
-                        <button class="button is-primary" @onclick="Beautifier">
+                        <button class="button is-primary is-fullwidth" @onclick="Beautifier">
                             Beautifier
                         </button>
                     </div>
+                </div>
+                <div class="field">
                     <div class="control">
-                        <button class="button is-primary" @onclick="Escape">
+                        <button class="button is-primary is-fullwidth" @onclick="Escape">
                             Escape
                         </button>
                     </div>
+                </div>
+                <div class="field">
                     <div class="control">
-                        <button class="button is-primary" @onclick="Unescape">
+                        <button class="button is-primary is-fullwidth" @onclick="Unescape">
                             Unescape
                         </button>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <ButtonCopyToClipboard AddCss="is-fullwidth" CopyText="@outputData" />
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <label class="label">Output</label>
+                    <div class="control">
+                        <textarea class="textarea" rows="19" @bind="outputData" placeholder="Result goes here"></textarea>
                     </div>
                 </div>
             </div>
@@ -72,33 +88,26 @@
 @code{
     public string inputData { get; set; }
     public string outputData { get; set; }
-    public int isSuccess = 0;
-    Services.Json.JsonService js;
-
-    protected override void OnInitialized()
-    {
-        js = new Services.Json.JsonService();
-    }
 
     public void Validator()
     {
         try
         {
-            outputData = js.JsonValidator(inputData);
+            outputData = ObonJson.JsonValidator(inputData);
             if (string.IsNullOrEmpty(outputData))
             {
-                toastService.ShowSuccess("JSON Valid", "SUCCESS");
+                _Toast.ShowSuccess("JSON Valid");
             }
             else
             {
-                toastService.ShowWarning("JSON Tidak Valid", "WARNING");
+                _Toast.ShowWarning("JSON Tidak Valid");
             }
         }
         catch (Exception ex)
         {
             _ = ex.ToString();
             outputData = "";
-            toastService.ShowError("Gagal memvalidasi JSON", "FAIL");
+            _Toast.ShowError("Gagal memvalidasi JSON");
         }
     }
 
@@ -106,13 +115,13 @@
     {
         try
         {
-            outputData = js.PrettyJson(inputData);
+            outputData = ObonJson.PrettyJson(inputData);
         }
         catch (Exception ex)
         {
             _ = ex.ToString();
             outputData = "";
-            toastService.ShowError("Gagal memvalidasi JSON", "FAIL");
+            _Toast.ShowError("Gagal memvalidasi JSON");
         }
     }
 
@@ -120,26 +129,26 @@
     {
         try
         {
-            outputData = js.Escape(inputData);
+            outputData = ObonJson.Escape(inputData);
         }
         catch (Exception ex)
         {
             _ = ex.ToString();
             outputData = "";
-            toastService.ShowError("Key atau input salah", "FAIL");
+            _Toast.ShowError("Key atau input salah");
         }
     }
     public void Unescape()
     {
         try
         {
-            outputData = js.Unescape(inputData);
+            outputData = ObonJson.Unescape(inputData);
         }
         catch (Exception ex)
         {
             _ = ex.ToString();
             outputData = "";
-            toastService.ShowError("Key atau input salah", "FAIL");
+            _Toast.ShowError("Key atau input salah");
         }
     }
 }
