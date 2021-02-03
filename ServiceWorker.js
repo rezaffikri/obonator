@@ -5,35 +5,16 @@ const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
 const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
-const staticCacheName = 'blazor-cache-v10';
+const staticCacheName = 'blazor-cache-v11';
 const requiredFiles = [
 "/obonator/404.html",
 "/obonator/css/app.css",
 "/obonator/css/blazored-toast-custom.css",
-"/obonator/css/bootstrap/bootstrap.min.css",
-"/obonator/css/bootstrap/bootstrap.min.css.map",
-"/obonator/css/bulma/css/bulma-rtl.css",
-"/obonator/css/bulma/css/bulma-rtl.css.map",
-"/obonator/css/bulma/css/bulma-rtl.min.css",
-"/obonator/css/bulma/css/bulma.css",
-"/obonator/css/bulma/css/bulma.css.map",
-"/obonator/css/bulma/css/bulma.min.css",
+"/obonator/css/bulmacustom.css",
 "/obonator/css/font-open-sans.css",
 "/obonator/css/login.css",
 "/obonator/css/minireset.css",
 "/obonator/css/obon.css",
-"/obonator/css/obonbaselayout.css",
-"/obonator/css/obonbulma.css",
-"/obonator/css/oboncard.css",
-"/obonator/css/open-iconic/FONT-LICENSE",
-"/obonator/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
-"/obonator/css/open-iconic/font/fonts/open-iconic.eot",
-"/obonator/css/open-iconic/font/fonts/open-iconic.otf",
-"/obonator/css/open-iconic/font/fonts/open-iconic.svg",
-"/obonator/css/open-iconic/font/fonts/open-iconic.ttf",
-"/obonator/css/open-iconic/font/fonts/open-iconic.woff",
-"/obonator/css/open-iconic/ICON-LICENSE",
-"/obonator/css/open-iconic/README.md",
 "/obonator/favicon.ico",
 "/obonator/img/icon-obon192.png",
 "/obonator/img/icon-obon512.png",
@@ -45,6 +26,13 @@ const requiredFiles = [
 "/obonator/img/splash-screen-cat-loading.gif",
 "/obonator/index.html",
 "/obonator/js/font-awesome.js",
+"/obonator/js/obon.js",
+"/obonator/lib/bulma/css/bulma-rtl.css",
+"/obonator/lib/bulma/css/bulma-rtl.css.map",
+"/obonator/lib/bulma/css/bulma-rtl.min.css",
+"/obonator/lib/bulma/css/bulma.css",
+"/obonator/lib/bulma/css/bulma.css.map",
+"/obonator/lib/bulma/css/bulma.min.css",
 "/obonator/ServiceWorkerRegister.js",
 "/obonator/manifest.json"
 ];
