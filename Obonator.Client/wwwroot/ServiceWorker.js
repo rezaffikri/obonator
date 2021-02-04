@@ -5,7 +5,7 @@ const swInstallEvent = 'install';
 const swInstalledEvent = 'installed';
 const swActivateEvent = 'activate';
 const staticCachePrefix = 'blazor-cache-v';
-const staticCacheName = 'blazor-cache-v10';
+const staticCacheName = 'blazor-cache-v11';
 const requiredFiles = [
 "/dev/404.html",
 "/dev/css/app.css",

@@ -8,6 +8,22 @@ namespace Obonator.Library
 {
     public class ObonCryptography
     {
+        private static string lastErrorMsg;
+
+        /// <summary>
+        /// Get last error message from this class
+        /// </summary>
+        /// <returns></returns>
+        public static string GetLastErrorMsg()
+        {
+            return lastErrorMsg;
+        }
+
+        private static void SetLastErrorMsg(string value)
+        {
+            lastErrorMsg = value;
+        }
+
         public class TripleDes
         {
             //Regex isHex
@@ -72,8 +88,7 @@ namespace Obonator.Library
                 }
                 catch (Exception ex)
                 {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
+                    SetLastErrorMsg(ex.ToString());
                 }
                 return result;
             }
@@ -102,8 +117,7 @@ namespace Obonator.Library
                 }
                 catch (Exception ex)
                 {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
+                    SetLastErrorMsg(ex.ToString());
                 }
                 return result;
             }
@@ -182,8 +196,7 @@ namespace Obonator.Library
                 }
                 catch (Exception ex)
                 {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
+                    SetLastErrorMsg(ex.ToString());
                 }
                 return result;
             }
@@ -199,8 +212,7 @@ namespace Obonator.Library
                 }
                 catch (Exception ex)
                 {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
+                    SetLastErrorMsg(ex.ToString());
                 }
                 return result;
             }
@@ -230,15 +242,15 @@ namespace Obonator.Library
                             }
                             catch (Exception ex)
                             {
-                                string msg = ex.Message;
-                                string stack = ex.StackTrace;
+                                SetLastErrorMsg(ex.ToString());
                             }
                         }
                         salt = null;
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    SetLastErrorMsg(ex.ToString());
                     return "";
                 }
                 return res;
@@ -278,8 +290,7 @@ namespace Obonator.Library
                                     }
                                     catch (Exception ex)
                                     {
-                                        string msg = ex.Message;
-                                        string stack = ex.StackTrace;
+                                        SetLastErrorMsg(ex.ToString());
                                     }
                                 }
                             }
@@ -311,15 +322,15 @@ namespace Obonator.Library
                             }
                             catch (Exception ex)
                             {
-                                string msg = ex.Message;
-                                string stack = ex.StackTrace;
+                                SetLastErrorMsg(ex.ToString());
                             }
                             salt = null;
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    SetLastErrorMsg(ex.ToString());
                     return "";
                 }
                 return res;
@@ -368,8 +379,7 @@ namespace Obonator.Library
                                 }
                                 catch (Exception ex)
                                 {
-                                    string msg = ex.Message;
-                                    string stack = ex.StackTrace;
+                                    SetLastErrorMsg(ex.ToString());
                                 }
                             }
                         }
@@ -405,8 +415,7 @@ namespace Obonator.Library
                 }
                 catch (Exception ex)
                 {
-                    string msg = ex.Message;
-                    string stack = ex.StackTrace;
+                    SetLastErrorMsg(ex.ToString());
                 }
                 return result;
             }

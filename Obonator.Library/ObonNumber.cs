@@ -7,6 +7,22 @@ namespace Obonator.Library
 {
     public class ObonNumber
     {
+        private static string lastErrorMsg;
+
+        /// <summary>
+        /// Get last error message from this class
+        /// </summary>
+        /// <returns></returns>
+        public static string GetLastErrorMsg()
+        {
+            return lastErrorMsg;
+        }
+
+        private static void SetLastErrorMsg(string value)
+        {
+            lastErrorMsg = value;
+        }
+
         private static int _seedCount = 0;
         private static ThreadLocal<Random> _tlRng = new ThreadLocal<Random>(() => new Random(GenerateSeed()));
         private static ThreadLocal<Random> _tlRngCry = new ThreadLocal<Random>(() => new Random(GenerateSeedCry()));
@@ -15,8 +31,8 @@ namespace Obonator.Library
         {
             // note the usage of Interlocked, remember that in a shared context we can't just "_seedCount++"
             return (int)((DateTime.Now.Ticks << 4) + Interlocked.Increment(ref _seedCount));
-        }        
-        
+        }
+
         private static int GenerateSeedCry()
         {
             // Because we cannot use the default randomizer, which is based on the current time 
@@ -37,7 +53,6 @@ namespace Obonator.Library
 
             return seed;
         }
-
 
         /// <summary>
         /// Get one random number between 0-9999
@@ -77,101 +92,46 @@ namespace Obonator.Library
             return _tlRngCry.Value.Next(length);
         }
 
+        /// <summary>
+        /// Convert hex to int, error will result -1
+        /// </summary>
+        /// <param name="hex">Bool to say if spaces are required</param>
+        /// <returns></returns>
         public static int HexToInt(string hex)
         {
-            int ret = -1;
+            int result = -1;
 
             try
             {
-                ret = Convert.ToInt32(hex, 16);
+                result = Convert.ToInt32(hex, 16);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                SetLastErrorMsg(ex.ToString());
+            }
 
-            return ret;
+            return result;
         }
 
+        /// <summary>
+        /// Convert int to hex, error will result -1
+        /// </summary>
+        /// <param name="num">Bool to say if spaces are required</param>
+        /// <returns></returns>
         public static string IntToHex(int num)
         {
-            string ret = "";
+            string result = "";
 
             try
             {
-                ret = Convert.ToString(num, 16);
+                result = Convert.ToString(num, 16);
             }
-            catch { }
-
-            return ret;
-        }
-
-        public static DateTime ToDateTime(object strdate)
-        {
-            DateTime ret = new DateTime();
-
-            try
+            catch (Exception ex)
             {
-                ret = Convert.ToDateTime(strdate);
+                SetLastErrorMsg(ex.ToString());
             }
 
-            catch { }
-
-            return ret;
-        }
-
-        public static DateTime ToDateTime(string strdate)
-        {
-            DateTime ret = new DateTime();
-
-            try
-            {
-                ret = Convert.ToDateTime(strdate);
-            }
-
-            catch { }
-
-            return ret;
-        }
-
-        public static int ToInt(string strnum)
-        {
-            int i = 0;
-
-            try
-            {
-                double d = Convert.ToDouble(strnum);
-                i = Convert.ToInt32(d);
-            }
-            catch
-            { }
-
-            return i;
-        }
-
-        public static long ToLong(string strnum)
-        {
-            long i = 0;
-
-            try
-            {
-                double d = Convert.ToDouble(strnum);
-                i = Convert.ToInt64(d);
-            }
-            catch
-            { }
-
-            return i;
-        }
-
-        public static double ToDouble(string strnum)
-        {
-            double ret = 0;
-
-            try
-            {
-                ret = Convert.ToDouble(strnum);
-            }
-            catch { }
-
-            return ret;
+            return result;
         }
 
         public static string FormatAmount(int amt)
@@ -188,14 +148,12 @@ namespace Obonator.Library
         {
             amt = amt.Replace(",", "");
             amt = amt.Replace(".", "");
-
-            long iamt = ToLong(amt);
-            string ret = iamt.ToString("##,##");
-
-            if (ret == "")
-                ret = "0";
-
-            return ret;
+            long.TryParse(amt, out long iamt);
+            string result = iamt.ToString("##,##");
+            result = result.Replace(",", ".");
+            if (result == "")
+                result = "0";
+            return result;
         }
     }
 }

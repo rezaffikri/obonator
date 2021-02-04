@@ -6,8 +6,24 @@ using System.Xml.Serialization;
 
 namespace Obonator.Library
 {
-    public class ObonMessage
+    public class ObonXml
     {
+        private static string lastErrorMsg;
+
+        /// <summary>
+        /// Get last error message from this class
+        /// </summary>
+        /// <returns></returns>
+        public static string GetLastErrorMsg()
+        {
+            return lastErrorMsg;
+        }
+
+        private static void SetLastErrorMsg(string value)
+        {
+            lastErrorMsg = value;
+        }
+
         public static class XmlHelper
         {
             //https://xmltocsharp.azurewebsites.net/
@@ -27,11 +43,9 @@ namespace Obonator.Library
                 }
                 catch (Exception ex)
                 {
-                    _ = ex.Message;
-                    result = result as T;
+                    SetLastErrorMsg(ex.ToString());
                 }
                 return result;
-                //Obj = (T)Convert.ChangeType(result, typeof(T));
             }
             public static string SerializeObject<T>(T value) where T : class
             {
@@ -47,7 +61,7 @@ namespace Obonator.Library
                 }
                 catch (Exception ex)
                 {
-                    _ = ex.Message;
+                    SetLastErrorMsg(ex.ToString());
                 }
 
                 return result;
@@ -55,24 +69,33 @@ namespace Obonator.Library
 
             public static string FormatXml(string inputXml)
             {
-                //XmlDocument document = new XmlDocument();
-                //document.LoadXml(inputXml);
-                XmlDocument document = new XmlDocument() { XmlResolver = null };
-                //StringReader sreader = new StringReader(inputXml);
-                //XmlReader reader = XmlReader.Create(sreader, new XmlReaderSettings() { XmlResolver = null });
-                StringBuilder builder = new StringBuilder();
-
-                using (XmlReader reader = XmlReader.Create(inputXml, new XmlReaderSettings() { XmlResolver = null }))
+                string result = "";
+                try
                 {
-                    document.Load(reader);
-                    using (XmlTextWriter writer = new XmlTextWriter(new StringWriter(builder)))
-                    {
-                        writer.Formatting = Formatting.Indented;
-                        document.Save(writer);
-                    }
-                }
+                    //XmlDocument document = new XmlDocument();
+                    //document.LoadXml(inputXml);
+                    XmlDocument document = new XmlDocument() { XmlResolver = null };
+                    //StringReader sreader = new StringReader(inputXml);
+                    //XmlReader reader = XmlReader.Create(sreader, new XmlReaderSettings() { XmlResolver = null });
+                    StringBuilder builder = new StringBuilder();
 
-                return builder.ToString();
+                    using (XmlReader reader = XmlReader.Create(inputXml, new XmlReaderSettings() { XmlResolver = null }))
+                    {
+                        document.Load(reader);
+                        using (XmlTextWriter writer = new XmlTextWriter(new StringWriter(builder)))
+                        {
+                            writer.Formatting = Formatting.Indented;
+                            document.Save(writer);
+                        }
+                    }
+
+                    return builder.ToString();
+                }
+                catch (Exception ex)
+                {
+                    SetLastErrorMsg(ex.ToString());
+                }
+                return result;
             }
         }
     }
