@@ -3,10 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>ObonCorp.Obonator.Library</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>Reza Fajri Fikri</Authors>
     <Company>ObonCorp</Company>
-    <Description>This library is for internal use only</Description>
+    <Description>This package is net standard library and intended for my learning in code more fun and for my own internal use, 
+    but go ahead if you want to try or look what inside</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
