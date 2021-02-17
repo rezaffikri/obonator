@@ -309,12 +309,13 @@ namespace Obonator.Library
             #region V1
             /// <summary>
             /// PBKDF2 with HMAC-SHA256
-            /// Format: { 0x15, prf (UInt32), iter count (UInt32), salt length (UInt32), salt, subkey }
+            /// Format: { prf (UInt32), iter count (UInt32), salt length (UInt32), salt, subkey }
             /// (All UInt32s are stored big-endian.)
             /// </summary>
             /// <param name="password">The password to hash.</param>
+            /// <param name="saltValue">Salt value to salt the password, leave empty to make it random</param>
             /// <returns>A hashed representation of the supplied <paramref name="password"/></returns>
-            public static string HashPasswordV1(string password)
+            public static string HashPasswordV1(string password, string saltValue = null)
             {
                 Version = 0x01;
                 if (password == null)
@@ -322,27 +323,15 @@ namespace Obonator.Library
                     throw new ArgumentNullException(nameof(password));
                 }
 
-                return Convert.ToBase64String(HashPasswordV1(password,
-                    prf: Prf,
-                    iterCount: IterCount,
-                    saltSize: SaltSize,
-                    numBytesRequested: NumBytesRequested));
-            }
+                byte[] salt = CreateSalt(SaltSize, saltValue);
 
-            private static byte[] HashPasswordV1(string password, KeyDerivationPrf prf, int iterCount, int saltSize, int numBytesRequested)
-            {
-                byte[] salt = new byte[saltSize];
-                using (var generator = RandomNumberGenerator.Create())
-                {
-                    generator.GetBytes(salt);
-                }
-                byte[] subkey = KeyDerivation.Pbkdf2(password, salt, prf, iterCount, numBytesRequested);
+                byte[] subkey = KeyDerivation.Pbkdf2(password, salt, Prf, IterCount, NumBytesRequested);
 
                 var outputBytes = new byte[1 + salt.Length + subkey.Length];
                 outputBytes[0] = Version; // format marker
                 Buffer.BlockCopy(salt, 0, outputBytes, 1, salt.Length);
-                Buffer.BlockCopy(subkey, 0, outputBytes, 1 + saltSize, subkey.Length);
-                return outputBytes;
+                Buffer.BlockCopy(subkey, 0, outputBytes, 1 + SaltSize, subkey.Length);
+                return Convert.ToBase64String(outputBytes);
             }
 
             /// <summary>
@@ -352,6 +341,7 @@ namespace Obonator.Library
             /// <param name="providedPassword">The password supplied for comparison.</param>
             /// <returns>Indicating the result of a password hash comparison.</returns>
             /// <remarks>Implementations of this method should be time consistent.</remarks>
+
             public static bool VerifyHashedPasswordV1(string hashedPassword, string providedPassword)
             {
                 if (hashedPassword == null)
@@ -368,48 +358,33 @@ namespace Obonator.Library
                 // read the format marker from the hashed password
                 if (decodedHashedPassword.Length == 0)
                 {
-                    return false;
+                    throw new Exception("Hashed password can't be decode");
                 }
-
-                if (VerifyHashedPasswordV1(decodedHashedPassword, providedPassword, out int embeddedIterCount))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-            private static bool VerifyHashedPasswordV1(byte[] hashedPassword, string password, out int iterCount)
-            {
-                iterCount = default;
 
                 try
                 {
-                    byte version = hashedPassword[0];
+                    byte version = decodedHashedPassword[0];
                     if (version != Version)
                         return false;
 
                     byte[] salt = new byte[SaltSize];
-                    Buffer.BlockCopy(hashedPassword, 1, salt, 0, salt.Length);
+                    Buffer.BlockCopy(decodedHashedPassword, 1, salt, 0, salt.Length);
 
-                    int subkeyLength = hashedPassword.Length - 1 - salt.Length;
+                    int subkeyLength = decodedHashedPassword.Length - 1 - salt.Length;
 
                     byte[] expectedSubkey = new byte[subkeyLength];
-                    Buffer.BlockCopy(hashedPassword, 1 + salt.Length, expectedSubkey, 0, expectedSubkey.Length);
+                    Buffer.BlockCopy(decodedHashedPassword, 1 + salt.Length, expectedSubkey, 0, expectedSubkey.Length);
 
                     // Hash the incoming password and verify it
-                    byte[] actualSubkey = KeyDerivation.Pbkdf2(password, salt, Prf, IterCount, subkeyLength);
+                    byte[] actualSubkey = KeyDerivation.Pbkdf2(providedPassword, salt, Prf, IterCount, subkeyLength);
 
                     return FixedTimeEquals(actualSubkey, expectedSubkey);
                 }
                 catch
                 {
-                    // This should never occur except in the case of a malformed payload, where
-                    // we might go off the end of the array. Regardless, a malformed payload
-                    // implies verification failed.
-                    return false;
+                    throw new Exception(@"This should never occur except in the case of a malformed payload, 
+                    where we might go off the end of the array. Regardless, a malformed payload
+                    implies verification failed");
                 }
             }
 
@@ -418,44 +393,32 @@ namespace Obonator.Library
             #region V2
             /// <summary>
             /// PBKDF2 with HMAC-SHA256 and Remembered Size and Iteration
-            /// Format: { 0x15, prf (UInt32), iter count (UInt32), salt length (UInt32), salt, subkey }
+            /// Format: { prf (UInt32), iter count (UInt32), salt length (UInt32), salt, subkey }
             /// (All UInt32s are stored big-endian.)
             /// </summary>
             /// <param name="password">The password to hash.</param>
+            /// <param name="saltValue">Salt value to salt the password, leave empty to make it random</param>
             /// <returns>A hashed representation of the supplied <paramref name="password"/></returns>
-
-            public static string HashPasswordV2(string password)
-            {
+            public static string HashPasswordV2(string password, string saltValue = null)
+            { 
                 Version = 0x02;
                 if (password == null)
                 {
                     throw new ArgumentNullException(nameof(password));
                 }
 
-                return Convert.ToBase64String(HashPasswordV2(password,
-                    prf: Prf,
-                    iterCount: IterCount,
-                    saltSize: SaltSize,
-                    numBytesRequested: NumBytesRequested));
-            }
+                byte[] salt = CreateSalt(SaltSize, saltValue);
 
-            private static byte[] HashPasswordV2(string password, KeyDerivationPrf prf, int iterCount, int saltSize, int numBytesRequested)
-            {
-                byte[] salt = new byte[saltSize];
-                using (var generator = RandomNumberGenerator.Create())
-                {
-                    generator.GetBytes(salt);
-                }
-                byte[] subkey = KeyDerivation.Pbkdf2(password, salt, prf, iterCount, numBytesRequested);
+                byte[] subkey = KeyDerivation.Pbkdf2(password, salt, Prf, IterCount, NumBytesRequested);
 
                 var outputBytes = new byte[13 + salt.Length + subkey.Length];
                 outputBytes[0] = Version; // format marker
-                WriteNetworkByteOrder(outputBytes, 1, (uint)prf);
-                WriteNetworkByteOrder(outputBytes, 5, (uint)iterCount);
-                WriteNetworkByteOrder(outputBytes, 9, (uint)saltSize);
+                WriteNetworkByteOrder(outputBytes, 1, (uint)Prf);
+                WriteNetworkByteOrder(outputBytes, 5, (uint)IterCount);
+                WriteNetworkByteOrder(outputBytes, 9, SaltSize);
                 Buffer.BlockCopy(salt, 0, outputBytes, 13, salt.Length);
-                Buffer.BlockCopy(subkey, 0, outputBytes, 13 + saltSize, subkey.Length);
-                return outputBytes;
+                Buffer.BlockCopy(subkey, 0, outputBytes, 13 + SaltSize, subkey.Length);
+                return Convert.ToBase64String(outputBytes);
             }
 
             private static void WriteNetworkByteOrder(byte[] buffer, int offset, uint value)
@@ -467,7 +430,7 @@ namespace Obonator.Library
             }
 
             /// <summary>
-            /// V2 ignore setting when verify because the hashed value had all the settings in it
+            /// V2 ignore setting when verify because the hashed value had all the settings in it except iterCount
             /// </summary>
             /// <param name="hashedPassword">The hash value for a user's stored password.</param>
             /// <param name="providedPassword">The password supplied for comparison.</param>
@@ -489,34 +452,17 @@ namespace Obonator.Library
                 // read the format marker from the hashed password
                 if (decodedHashedPassword.Length == 0)
                 {
-                    return false;
+                    throw new Exception("Hashed password can't be decode");
                 }
-
-                if (VerifyHashedPasswordV2(decodedHashedPassword, providedPassword, out int embeddedIterCount))
-                {
-                    // If this hasher was configured with a higher iteration count, change the entry now.
-                    return (embeddedIterCount < IterCount)
-                        ? false
-                        : true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-            private static bool VerifyHashedPasswordV2(byte[] hashedPassword, string password, out int iterCount)
-            {
-                iterCount = default;
 
                 try
                 {
                     // Read header information
-                    KeyDerivationPrf prf = (KeyDerivationPrf)ReadNetworkByteOrder(hashedPassword, 1);
-                    iterCount = (int)ReadNetworkByteOrder(hashedPassword, 5);
-                    int saltLength = (int)ReadNetworkByteOrder(hashedPassword, 9);
+                    KeyDerivationPrf prf = (KeyDerivationPrf)ReadNetworkByteOrder(decodedHashedPassword, 1);
+                    int iterCount = (int)ReadNetworkByteOrder(decodedHashedPassword, 5);
+                    int saltLength = (int)ReadNetworkByteOrder(decodedHashedPassword, 9);
 
-                    byte version = hashedPassword[0];
+                    byte version = decodedHashedPassword[0];
                     if (version != Version)
                         return false;
 
@@ -526,28 +472,27 @@ namespace Obonator.Library
                         return false;
                     }
                     byte[] salt = new byte[saltLength];
-                    Buffer.BlockCopy(hashedPassword, 13, salt, 0, salt.Length);
+                    Buffer.BlockCopy(decodedHashedPassword, 13, salt, 0, salt.Length);
 
                     // Read the subkey (the rest of the payload): must be >= 128 bits
-                    int subkeyLength = hashedPassword.Length - 13 - salt.Length;
+                    int subkeyLength = decodedHashedPassword.Length - 13 - salt.Length;
                     if (subkeyLength < 64 / 8)
                     {
                         return false;
                     }
                     byte[] expectedSubkey = new byte[subkeyLength];
-                    Buffer.BlockCopy(hashedPassword, 13 + salt.Length, expectedSubkey, 0, expectedSubkey.Length);
+                    Buffer.BlockCopy(decodedHashedPassword, 13 + salt.Length, expectedSubkey, 0, expectedSubkey.Length);
 
                     // Hash the incoming password and verify it
-                    byte[] actualSubkey = KeyDerivation.Pbkdf2(password, salt, prf, iterCount, subkeyLength);
+                    byte[] actualSubkey = KeyDerivation.Pbkdf2(providedPassword, salt, prf, iterCount, subkeyLength);
 
                     return FixedTimeEquals(actualSubkey, expectedSubkey);
                 }
                 catch
                 {
-                    // This should never occur except in the case of a malformed payload, where
-                    // we might go off the end of the array. Regardless, a malformed payload
-                    // implies verification failed.
-                    return false;
+                    throw new Exception(@"This should never occur except in the case of a malformed payload, 
+                    where we might go off the end of the array. Regardless, a malformed payload
+                    implies verification failed");
                 }
             }
 
@@ -558,6 +503,7 @@ namespace Obonator.Library
                     | ((uint)(buffer[offset + 2]) << 8)
                     | ((uint)(buffer[offset + 3]));
             }
+            #endregion
 
             [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
             private static bool FixedTimeEquals(byte[] left, byte[] right)
@@ -578,7 +524,28 @@ namespace Obonator.Library
 
                 return accum == 0;
             }
-            #endregion
+
+            private static byte[] CreateSalt(byte saltSize, string saltValue = null)
+            {
+                byte[] salt = new byte[saltSize];
+                if (saltValue == null)
+                {
+                    using (var generator = RandomNumberGenerator.Create())
+                    {
+                        generator.GetBytes(salt);
+                    }
+                }
+                else
+                {
+                    byte[] saltValueBytes = System.Text.Encoding.ASCII.GetBytes(saltValue);
+                    if (saltValueBytes.Length > salt.Length)
+                    {
+                        throw new Exception("SaltValue is bigger than SaltSize");
+                    }
+                    Buffer.BlockCopy(saltValueBytes, 0, salt, 0, saltValueBytes.Length);
+                }
+                return salt;
+            }
         }
 
     }
