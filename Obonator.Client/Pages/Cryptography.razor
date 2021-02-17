@@ -59,22 +59,17 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input type="text" class="input" @bind="inputData" placeholder="Enter text to be Encrypted or Decrypted" />
+                        <textarea class="textarea" @bind="inputData" placeholder="Enter text to be Encrypted or Decrypted"></textarea>
                     </div>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Output</label>
-            </div>
+            <div class="field-label is-normal"><label class="label">Output</label></div>
             <div class="field-body">
-                <div class="field has-addons">
-                    <div class="control is-expanded">
-                        <input type="text" class="input" @bind="outputData" placeholder="Result goes here" />
-                    </div>
+                <div class="field">
                     <div class="control">
-                        <ButtonCopyToClipboard CopyText="@outputData" />
+                        <textarea class="textarea" @bind="outputData" placeholder="Result goes here"></textarea>
                     </div>
                 </div>
             </div>
@@ -121,6 +116,9 @@
                                 </button>
                             </div>
                         }
+                        <div class="control">
+                            <ButtonCopyToClipboard CopyText="@outputData" />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -12,8 +12,8 @@ using System.Xml;
 namespace Obonator.Library
 {
     class ObonWebservices
-    { 
-        public static void SerializeJsonIntoStream(object value, Stream stream)
+    {
+        private static void SerializeJsonIntoStream(object value, Stream stream)
         {
             using (var jtw = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true }))
             {
@@ -38,10 +38,11 @@ namespace Obonator.Library
             return httpContent;
         }
 
-        private static async Task SendStreamAsync(HttpMethod method,object content, string url)
+        private static async Task SendStreamAsync(HttpMethod method, object content, string url, int timeoutSecond = 30)
         {
             CancellationTokenSource source = new CancellationTokenSource();
-            CancellationToken token = source.Token;
+            source.CancelAfter(TimeSpan.FromSeconds(timeoutSecond));
+            CancellationToken cToken = source.Token;
             using (var client = new HttpClient())
             using (var request = new HttpRequestMessage(method, url))
             using (var httpContent = CreateHttpContent(content))
@@ -49,7 +50,7 @@ namespace Obonator.Library
                 request.Content = httpContent;
 
                 using (var response = await client
-                    .SendAsync(request, HttpCompletionOption.ResponseHeadersRead, token)
+                    .SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cToken)
                     .ConfigureAwait(false))
                 {
                     response.EnsureSuccessStatusCode();

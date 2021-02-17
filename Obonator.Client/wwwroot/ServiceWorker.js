@@ -16,6 +16,7 @@ const requiredFiles = [
 "/dev/css/minireset.css",
 "/dev/css/obon.css",
 "/dev/favicon.ico",
+"/dev/img/icon-cat.png",
 "/dev/img/icon-obon192.png",
 "/dev/img/icon-obon512.png",
 "/dev/img/logo.jpg",

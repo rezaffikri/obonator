@@ -181,12 +181,12 @@ namespace Obonator.Library
             /// </summary>
             /// <param name="sub"></param>
             /// <returns></returns>
-            public string GetSubstring(int stringLength)
+            public string Substring(int stringLength)
             {
                 try
                 {
                     string result = Str.Substring(SubBefore, stringLength);
-                    SubBefore = SubBefore + stringLength;
+                    SubBefore += stringLength;
                     return result;
                 }
                 catch (Exception ex)

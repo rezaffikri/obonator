@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -7,25 +8,15 @@ namespace Obonator.Library
 {
     public class ObonNumber
     {
-        private static string lastErrorMsg;
-
-        /// <summary>
-        /// Get last error message from this class
-        /// </summary>
-        /// <returns></returns>
-        public static string GetLastErrorMsg()
-        {
-            return lastErrorMsg;
-        }
-
-        private static void SetLastErrorMsg(string value)
-        {
-            lastErrorMsg = value;
-        }
-
+        public static CultureInfo ci = new CultureInfo("id-ID");
         private static int _seedCount = 0;
         private static ThreadLocal<Random> _tlRng = new ThreadLocal<Random>(() => new Random(GenerateSeed()));
         private static ThreadLocal<Random> _tlRngCry = new ThreadLocal<Random>(() => new Random(GenerateSeedCry()));
+
+        public static void SetCulture(string culture)
+        {
+            ci = new CultureInfo(culture);
+        }
 
         private static int GenerateSeed()
         {
@@ -92,48 +83,6 @@ namespace Obonator.Library
             return _tlRngCry.Value.Next(length);
         }
 
-        /// <summary>
-        /// Convert hex to int, error will result -1
-        /// </summary>
-        /// <param name="hex">Bool to say if spaces are required</param>
-        /// <returns></returns>
-        public static int HexToInt(string hex)
-        {
-            int result = -1;
-
-            try
-            {
-                result = Convert.ToInt32(hex, 16);
-            }
-            catch (Exception ex)
-            {
-                SetLastErrorMsg(ex.ToString());
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Convert int to hex, error will result -1
-        /// </summary>
-        /// <param name="num">Bool to say if spaces are required</param>
-        /// <returns></returns>
-        public static string IntToHex(int num)
-        {
-            string result = "";
-
-            try
-            {
-                result = Convert.ToString(num, 16);
-            }
-            catch (Exception ex)
-            {
-                SetLastErrorMsg(ex.ToString());
-            }
-
-            return result;
-        }
-
         public static string FormatAmount(int amt)
         {
             return FormatAmount(amt.ToString());
@@ -149,8 +98,7 @@ namespace Obonator.Library
             amt = amt.Replace(",", "");
             amt = amt.Replace(".", "");
             long.TryParse(amt, out long iamt);
-            string result = iamt.ToString("##,##");
-            result = result.Replace(",", ".");
+            string result = iamt.ToString("##,##", ci);
             if (result == "")
                 result = "0";
             return result;
