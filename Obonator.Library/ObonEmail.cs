@@ -39,31 +39,6 @@ namespace Obonator.Library
             IsSetEmailSettings = true;
         }
 
-        public static void SetEmailSettingsDefault()
-        {
-            if (string.IsNullOrEmpty(SmtpName))
-            {
-                SmtpName = "Obonator";
-            }
-            if (string.IsNullOrEmpty(SmtpPassword))
-            {
-                SmtpPassword = "P@ssw0rd1!Obon";
-            }
-            if (SmtpPort <= 0)
-            {
-                SmtpPort = 587;
-            }
-            if (string.IsNullOrEmpty(SmtpServer))
-            {
-                SmtpServer = "smtp.gmail.com";
-            }
-            if (string.IsNullOrEmpty(SmtpUsername))
-            {
-                SmtpUsername = "obonzilla@gmail.com";
-            }
-            IsSetEmailSettings = true;
-        }
-
         public string GetLastErrorMsg()
         {
             return LastErrorMsg;
@@ -139,26 +114,26 @@ namespace Obonator.Library
                                 switch (ex.StatusCode)
                                 {
                                     case SmtpStatusCode.GeneralFailure:
-                                        remark = $"SMTP service Server {SmtpServer} tidak ditemukan, StatusCode: {SmtpStatusCode.GeneralFailure}";
+                                        remark = $"The transaction could not occur. You receive this error when the specified SMTP. Host cannot be found, StatusCode: {SmtpStatusCode.GeneralFailure}";
                                         tryAgain = 0;
                                         break;
                                     case SmtpStatusCode.ServiceNotAvailable:
-                                        remark = $"SMTP service di Server {SmtpServer} tidak tersedia, StatusCode: {SmtpStatusCode.ServiceNotAvailable}";
+                                        remark = $"The SMTP service is not available; the server is closing the transmission channel, StatusCode: {SmtpStatusCode.ServiceNotAvailable}";
                                         tryAgain = 0;
                                         break;
                                     case SmtpStatusCode.MailboxBusy:
-                                        remark = $"Mailbox penerima sedang penuh, StatusCode: {SmtpStatusCode.MailboxBusy}";
+                                        remark = $"The destination mailbox is in use, StatusCode: {SmtpStatusCode.MailboxBusy}";
                                         tryAgain = 0;
                                         break;
                                     case SmtpStatusCode.InsufficientStorage:
-                                        remark = $"Storage host penerima penuh, StatusCode: {SmtpStatusCode.InsufficientStorage}";
+                                        remark = $"The SMTP service does not have sufficient storage to complete the request., StatusCode: {SmtpStatusCode.InsufficientStorage}";
                                         tryAgain = 0;
                                         break;
                                     case SmtpStatusCode.ClientNotPermitted:
-                                        remark = $"Gagal autentikasi atau tidak diperbolehkan untuk mengirim email dengan Server {SmtpServer}, StatusCode: {SmtpStatusCode.ClientNotPermitted}";
+                                        remark = $"The client was not authenticated or is not allowed to send mail using the specified. SMPT host, StatusCode: {SmtpStatusCode.ClientNotPermitted}";
                                         break;
                                     case SmtpStatusCode.MailboxUnavailable:
-                                        remark = $"Mailbox penerima tidak tersedia, StatusCode: {SmtpStatusCode.MailboxUnavailable}";
+                                        remark = $"The destination mailbox was not found or could not be accessed., StatusCode: {SmtpStatusCode.MailboxUnavailable}";
                                         tryAgain = 0;
                                         break;
                                     case SmtpStatusCode.UserNotLocalTryAlternatePath:
@@ -166,13 +141,13 @@ namespace Obonator.Library
                                         tryAgain = 0;
                                         break;
                                     case SmtpStatusCode.ExceededStorageAllocation:
-                                        remark = $"Storage penerima penuh, StatusCode: {SmtpStatusCode.ExceededStorageAllocation}";
+                                        remark = $"The user mailbox is not located on the receiving server. You should resend using. The supplied address information., StatusCode: {SmtpStatusCode.ExceededStorageAllocation}";
                                         break;
                                     case SmtpStatusCode.TransactionFailed:
-                                        remark = $"Gagal, StatusCode: {SmtpStatusCode.TransactionFailed}";
+                                        remark = $"The transaction failed, StatusCode: {SmtpStatusCode.TransactionFailed}";
                                         break;
                                     default:
-                                        remark = $"Terjadi kesalahan";
+                                        remark = $"Something wrong";
                                         break;
                                 }
                             }
