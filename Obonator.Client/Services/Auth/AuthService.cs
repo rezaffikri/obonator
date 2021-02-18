@@ -39,7 +39,7 @@ namespace Obonator.Client.Services.Auth
         public async Task<LoginResult> LocalLogin(LoginModel loginModel)
         {
             LoginResult loginResult = new LoginResult();
-            string role = "";
+            string role;
             if (loginModel.IsGuest)
             {
                 role = "guest";
