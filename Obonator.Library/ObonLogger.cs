@@ -26,14 +26,14 @@ namespace Obonator.Library
             _IsLogOn = true;
         }
 
-        public ObonLogger(string LogDir, string LogName)
+        public ObonLogger(string LogName, string LogDir)
         {
             _CurrentDir = LogDir;
             _CurrentFileName = LogName;
             _IsLogOn = true;
         }
 
-        public ObonLogger(string LogDir, string LogName, bool IsLogOn)
+        public ObonLogger(string LogName, string LogDir, bool IsLogOn)
         {
             _CurrentDir = LogDir;
             _CurrentFileName = LogName;
