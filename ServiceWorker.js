@@ -16,6 +16,7 @@ const requiredFiles = [
 "/obonator/css/minireset.css",
 "/obonator/css/obon.css",
 "/obonator/favicon.ico",
+"/obonator/img/icon-cat.png",
 "/obonator/img/icon-obon192.png",
 "/obonator/img/icon-obon512.png",
 "/obonator/img/logo.jpg",
