@@ -40,23 +40,28 @@ namespace Obonator.Library
             _IsLogOn = IsLogOn;
         }
 
-        public void Log(string Message)
+        public void Log(string Message, string refNum = "")
         {
-            WriteLog(Message, "");
+            WriteLog(Message, "", refNum);
         }
 
-        public void Log(string Message, string StackTrace)
+        public void Log(string Message, string StackTrace, string refNum = "")
         {
-            WriteLog(Message, StackTrace);
+            WriteLog(Message, StackTrace, refNum);
         }
 
-        private void WriteLog(string Message, string StackTrace)
+        private void WriteLog(string Message, string StackTrace, string refNum)
         {
             if (!_IsLogOn)
             {
                 return;
             }
             string LogFileName;
+
+            if (!string.IsNullOrEmpty(refNum))
+            {
+                Message = "[Ref Number: " + refNum + "]" + Environment.NewLine + Message;
+            }
 
             for (int i = 0; i < MAX_TRY; i++)
             {
